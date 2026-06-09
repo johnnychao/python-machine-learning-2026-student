@@ -1,0 +1,15 @@
+numpy
+pandas
+scipy
+matplotlib
+scikit-learn
+jupyterlab
+watermark
+mlxtend
+pyprind
+flask
+wtforms
+tensorflow
+tensorflow-datasets
+gym==0.26.2
+pygame

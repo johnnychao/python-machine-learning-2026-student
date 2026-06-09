@@ -1,0 +1,8 @@
+watermark
+mlxtend
+pyprind
+flask
+wtforms
+tensorflow-datasets
+gym==0.26.2
+pygame

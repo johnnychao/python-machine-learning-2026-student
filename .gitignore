@@ -1,0 +1,13 @@
+# local/runtime
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# private or generated heavy artifacts
+outputs/
+work/
+notebooks/official_source/
+notebooks/official_zh_annotated/
+*.pdf
+*.pptx
+*.docx
