@@ -13,6 +13,9 @@ NOTEBOOK_DIR = REPO / "notebooks" / "ai_solution_practicum"
 MANIFEST_PATH = REPO / "data" / "ai_solution_practicum" / "datasets.json"
 PRACTICE_DIR = REPO / "practice" / "ai_solution_practicum"
 PUBLIC_PAGE = REPO / "docs" / "index.html"
+PUBLIC_STYLE = REPO / "docs" / "assets" / "styles.css"
+PUBLIC_APP = REPO / "docs" / "assets" / "app.js"
+PUBLIC_AUDIO = REPO / "docs" / "assets" / "cinematic-audio.js"
 REPORT_PATH = REPO / "reports" / "ai_solution_practicum_validation.json"
 
 EXPECTED_NOTEBOOKS = [
@@ -27,6 +30,9 @@ REQUIRED_FILES = [
     REPO / "AI_SOLUTION_PRACTICUM.md",
     MANIFEST_PATH,
     PUBLIC_PAGE,
+    PUBLIC_STYLE,
+    PUBLIC_APP,
+    PUBLIC_AUDIO,
 ]
 
 BANNED_CODE_PATTERNS = {
@@ -53,6 +59,7 @@ LOGIN_INSTRUCTION_PATTERNS = {
         re.IGNORECASE,
     ),
 }
+PROHIBITED_WEB_FONTS = re.compile(r"DFKai-SB|BiauKai|KaiTi|標楷體", re.IGNORECASE)
 
 ALLOWED_KAGGLE_PROVENANCE_KEYS = {
     "provenance_url",
@@ -345,6 +352,10 @@ def validate_public_page() -> list[dict[str, str]]:
         return [result("public_page:exists", False, str(PUBLIC_PAGE))]
 
     html = PUBLIC_PAGE.read_text(encoding="utf-8")
+    css = PUBLIC_STYLE.read_text(encoding="utf-8") if PUBLIC_STYLE.is_file() else ""
+    app_js = PUBLIC_APP.read_text(encoding="utf-8") if PUBLIC_APP.is_file() else ""
+    audio_js = PUBLIC_AUDIO.read_text(encoding="utf-8") if PUBLIC_AUDIO.is_file() else ""
+    public_source = "\n".join([html, css, app_js, audio_js])
     checks = [result("public_page:exists", True, str(PUBLIC_PAGE))]
     checks.append(
         result(
@@ -361,6 +372,43 @@ def validate_public_page() -> list[dict[str, str]]:
             "public page contains no account, token, secret, or login instruction"
             if not login_hits
             else f"matched={login_hits}",
+        )
+    )
+    checks.append(
+        result(
+            "public_page:cinematic_structure",
+            all(marker in html for marker in ["cinematic-site", "cinema-atmosphere", "data-scene=", "film-progress"]),
+            "cinematic opening, scenes, atmosphere, and progress markers are present",
+        )
+    )
+    checks.append(
+        result(
+            "public_page:no_prohibited_font",
+            not PROHIBITED_WEB_FONTS.search(public_source),
+            "web source contains no prohibited calligraphic font fallback",
+        )
+    )
+    checks.append(
+        result(
+            "public_page:audio_opt_in",
+            (
+                html.count("data-sound-toggle") >= 2
+                and "cinematic-audio.js" in html
+                and "autoplay" not in public_source.lower()
+                and 'data-sound="off"' in html
+                and 'setUi("off"' in audio_js
+                and 'addEventListener("click", handleToggle)' in audio_js
+            ),
+            "procedural soundtrack is present, defaults off, and starts from an explicit click",
+        )
+    )
+    checks.append(
+        result(
+            "public_page:reduced_motion",
+            "prefers-reduced-motion: reduce" in css
+            and "animation: none !important" in css
+            and "scroll-behavior: auto" in css,
+            "cinematic effects expose a reduced-motion mode",
         )
     )
     return checks
