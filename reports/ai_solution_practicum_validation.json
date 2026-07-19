@@ -1,10 +1,10 @@
 {
   "status": "pass",
-  "checked_at_utc": "2026-07-19T17:03:52+00:00",
+  "checked_at_utc": "2026-07-19T18:21:26+00:00",
   "scope": "Static practicum validation; fresh Colab execution and remote URL availability remain separate checks.",
   "summary": {
-    "total": 55,
-    "passed": 55,
+    "total": 62,
+    "passed": 62,
     "failed": 0
   },
   "checks": [
@@ -22,6 +22,21 @@
       "check": "required_file:docs/index.html",
       "status": "pass",
       "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\index.html"
+    },
+    {
+      "check": "required_file:docs/assets/styles.css",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\styles.css"
+    },
+    {
+      "check": "required_file:docs/assets/app.js",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\app.js"
+    },
+    {
+      "check": "required_file:docs/assets/cinematic-audio.js",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\cinematic-audio.js"
     },
     {
       "check": "notebook:00_colab_ready.ipynb:exists",
@@ -282,6 +297,26 @@
       "check": "public_page:no_login_instruction",
       "status": "pass",
       "detail": "public page contains no account, token, secret, or login instruction"
+    },
+    {
+      "check": "public_page:cinematic_structure",
+      "status": "pass",
+      "detail": "cinematic opening, scenes, atmosphere, and progress markers are present"
+    },
+    {
+      "check": "public_page:no_prohibited_font",
+      "status": "pass",
+      "detail": "web source contains no prohibited calligraphic font fallback"
+    },
+    {
+      "check": "public_page:audio_opt_in",
+      "status": "pass",
+      "detail": "procedural soundtrack is present, defaults off, and starts from an explicit click"
+    },
+    {
+      "check": "public_page:reduced_motion",
+      "status": "pass",
+      "detail": "cinematic effects expose a reduced-motion mode"
     }
   ]
 }
