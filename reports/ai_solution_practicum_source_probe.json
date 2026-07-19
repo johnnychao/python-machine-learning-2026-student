@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-07-20T01:01:00+08:00",
+  "authentication_used": false,
+  "checks": [
+    {
+      "id": "cnn_cifar10",
+      "url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+      "method": "anonymous HTTP range GET",
+      "status": 206,
+      "result": "pass"
+    },
+    {
+      "id": "rnn_fixed_csv",
+      "url": "https://huggingface.co/datasets/startificial/twitter-nlp/resolve/bb1c6925112f570ea0ca94c723ff8818cc642eed/train.csv",
+      "method": "anonymous HTTP HEAD",
+      "status": 200,
+      "content_length": 623184,
+      "result": "pass"
+    },
+    {
+      "id": "style_transfer_model",
+      "url": "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2?tf-hub-format=compressed",
+      "method": "anonymous HTTP range GET with redirects",
+      "status": 206,
+      "redirect_target": "signed Google Cloud Storage model archive",
+      "result": "pass"
+    },
+    {
+      "id": "retired_cnn_source",
+      "url": "https://storage.googleapis.com/mledu-datasets/cats_and_dogs_filtered.zip",
+      "method": "anonymous HTTP GET",
+      "status": 403,
+      "result": "removed from curriculum",
+      "detail": "AccessDenied; replaced by Keras CIFAR-10 cat/dog subset before release"
+    }
+  ]
+}

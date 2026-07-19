@@ -1,0 +1,287 @@
+{
+  "status": "pass",
+  "checked_at_utc": "2026-07-19T17:03:52+00:00",
+  "scope": "Static practicum validation; fresh Colab execution and remote URL availability remain separate checks.",
+  "summary": {
+    "total": 55,
+    "passed": 55,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "check": "required_file:AI_SOLUTION_PRACTICUM.md",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\AI_SOLUTION_PRACTICUM.md"
+    },
+    {
+      "check": "required_file:data/ai_solution_practicum/datasets.json",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\data\\ai_solution_practicum\\datasets.json"
+    },
+    {
+      "check": "required_file:docs/index.html",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\index.html"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\00_colab_ready.ipynb"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=7, nbformat=4"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:no_forbidden_runtime_dependency",
+      "status": "pass",
+      "detail": "no Kaggle runtime, credential, or Gradio dependency"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:kaggle_urls_markdown_only",
+      "status": "pass",
+      "detail": "Kaggle URLs appear only as provenance in markdown"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:no_day_marker",
+      "status": "pass",
+      "detail": "no extra-day marker"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:runtime_data_scheme",
+      "status": "pass",
+      "detail": "preflight has no station data source"
+    },
+    {
+      "check": "notebook:00_colab_ready.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook ships without stale output"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\01_cnn_pet_story.ipynb"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=21, nbformat=4"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:no_forbidden_runtime_dependency",
+      "status": "pass",
+      "detail": "no Kaggle runtime, credential, or Gradio dependency"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:kaggle_urls_markdown_only",
+      "status": "pass",
+      "detail": "Kaggle URLs appear only as provenance in markdown"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:no_day_marker",
+      "status": "pass",
+      "detail": "no extra-day marker"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:runtime_data_scheme",
+      "status": "pass",
+      "detail": "Keras CIFAR-10 download filtered to cat and dog classes"
+    },
+    {
+      "check": "notebook:01_cnn_pet_story.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook ships without stale output"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\02_rnn_message_story.ipynb"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=21, nbformat=4"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:no_forbidden_runtime_dependency",
+      "status": "pass",
+      "detail": "no Kaggle runtime, credential, or Gradio dependency"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:kaggle_urls_markdown_only",
+      "status": "pass",
+      "detail": "Kaggle URLs appear only as provenance in markdown"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:no_day_marker",
+      "status": "pass",
+      "detail": "no extra-day marker"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:runtime_data_scheme",
+      "status": "pass",
+      "detail": "pinned Hugging Face disaster-tweet CSV"
+    },
+    {
+      "check": "notebook:02_rnn_message_story.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook ships without stale output"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\03_style_transfer_story.ipynb"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=16, nbformat=4"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:no_forbidden_runtime_dependency",
+      "status": "pass",
+      "detail": "no Kaggle runtime, credential, or Gradio dependency"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:kaggle_urls_markdown_only",
+      "status": "pass",
+      "detail": "Kaggle URLs appear only as provenance in markdown"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:no_day_marker",
+      "status": "pass",
+      "detail": "no extra-day marker"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:runtime_data_scheme",
+      "status": "pass",
+      "detail": "course-created ImageGen assets loaded from a public project URL"
+    },
+    {
+      "check": "notebook:03_style_transfer_story.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook ships without stale output"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\04_rl_strategy_story.ipynb"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=15, nbformat=4"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:no_forbidden_runtime_dependency",
+      "status": "pass",
+      "detail": "no Kaggle runtime, credential, or Gradio dependency"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:kaggle_urls_markdown_only",
+      "status": "pass",
+      "detail": "Kaggle URLs appear only as provenance in markdown"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:no_day_marker",
+      "status": "pass",
+      "detail": "no extra-day marker"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:runtime_data_scheme",
+      "status": "pass",
+      "detail": "pure-Python Connect X simulator with no external data"
+    },
+    {
+      "check": "notebook:04_rl_strategy_story.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook ships without stale output"
+    },
+    {
+      "check": "practice:student_files",
+      "status": "pass",
+      "detail": "files=['experiment_card.md', 'project_canvas.md']; expected at least two non-empty files"
+    },
+    {
+      "check": "manifest:four_stations",
+      "status": "pass",
+      "detail": "stations=['cnn', 'rl', 'rnn', 'style']"
+    },
+    {
+      "check": "manifest:no_auth_required",
+      "status": "pass",
+      "detail": "delivery and every station declare credentials_required=false"
+    },
+    {
+      "check": "manifest:kaggle_provenance",
+      "status": "pass",
+      "detail": "every station names its project origin and delivery limits Kaggle to provenance"
+    },
+    {
+      "check": "manifest:kaggle_urls_provenance_only",
+      "status": "pass",
+      "detail": "Kaggle URLs are confined to provenance fields"
+    },
+    {
+      "check": "manifest:cnn:runtime_scheme",
+      "status": "pass",
+      "detail": "cnn no-login runtime source"
+    },
+    {
+      "check": "manifest:rnn:runtime_scheme",
+      "status": "pass",
+      "detail": "rnn no-login runtime source"
+    },
+    {
+      "check": "manifest:style:runtime_scheme",
+      "status": "pass",
+      "detail": "style no-login runtime source"
+    },
+    {
+      "check": "manifest:rl:runtime_scheme",
+      "status": "pass",
+      "detail": "rl no-login runtime source"
+    },
+    {
+      "check": "public_page:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\index.html"
+    },
+    {
+      "check": "public_page:no_day_marker",
+      "status": "pass",
+      "detail": "public page contains no extra-day marker"
+    },
+    {
+      "check": "public_page:no_login_instruction",
+      "status": "pass",
+      "detail": "public page contains no account, token, secret, or login instruction"
+    }
+  ]
+}

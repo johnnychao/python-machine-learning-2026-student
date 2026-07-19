@@ -1,0 +1,80 @@
+{
+  "package": "ai_solution_practicum",
+  "title": "AI 解決方案綜合實作",
+  "delivery": {
+    "environment": "Google Colab",
+    "credentials_required": false,
+    "kaggle_role": "只說明題目脈絡與原始專案出處；連結見 Notebook",
+    "student_flow": [
+      "四案快速體驗",
+      "選一案完整實作"
+    ]
+  },
+  "datasets": [
+    {
+      "id": "cnn_pet_story",
+      "notebook": "01_cnn_pet_story.ipynb",
+      "task": "貓狗影像二分類",
+      "runtime_sources": [
+        {
+          "kind": "keras_builtin_dataset",
+          "url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+          "method": "tf.keras.datasets.cifar10.load_data",
+          "classes": {
+            "cat": 3,
+            "dog": 5
+          }
+        }
+      ],
+      "project_origin": "Cats and Dogs image classification；連結見 Notebook",
+      "credentials_required": false,
+      "license_note": "資料說明與使用資訊請以 CIFAR-10 官方頁為準：https://www.cs.toronto.edu/~kriz/cifar.html"
+    },
+    {
+      "id": "rnn_message_story",
+      "notebook": "02_rnn_message_story.ipynb",
+      "task": "災害相關短訊息二分類",
+      "runtime_sources": [
+        {
+          "kind": "fixed_revision_public_download",
+          "url": "https://huggingface.co/datasets/startificial/twitter-nlp/resolve/bb1c6925112f570ea0ca94c723ff8818cc642eed/train.csv",
+          "revision": "bb1c6925112f570ea0ca94c723ff8818cc642eed"
+        }
+      ],
+      "project_origin": "Natural Language Processing with Disaster Tweets；連結見 Notebook",
+      "credentials_required": false,
+      "license_note": "固定版本公開鏡像標示 MIT；使用時仍應保留來源與版本資訊。"
+    },
+    {
+      "id": "style_transfer_story",
+      "notebook": "03_style_transfer_story.ipynb",
+      "task": "任意風格轉換與混合強度比較",
+      "runtime_sources": [
+        {
+          "kind": "course_asset",
+          "url": "https://raw.githubusercontent.com/johnnychao/python-machine-learning-2026-student/main/data/ai_solution_practicum/assets/style-content-coast.png"
+        },
+        {
+          "kind": "course_asset",
+          "url": "https://raw.githubusercontent.com/johnnychao/python-machine-learning-2026-student/main/data/ai_solution_practicum/assets/style-reference-sea-wind.png"
+        },
+        {
+          "kind": "public_pretrained_model",
+          "url": "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
+        }
+      ],
+      "project_origin": "I’m Something of a Painter Myself；連結見 Notebook",
+      "credentials_required": false,
+      "license_note": "課程圖片與模型須各自依 repository 與模型來源標示的使用條款使用。"
+    },
+    {
+      "id": "rl_strategy_story",
+      "notebook": "04_rl_strategy_story.ipynb",
+      "task": "Connect X 純 Python 策略模擬",
+      "runtime_sources": [],
+      "project_origin": "Connect X；連結見 Notebook",
+      "credentials_required": false,
+      "license_note": "棋盤與對局由 Notebook 即時產生，沒有外部資料集。"
+    }
+  ]
+}
