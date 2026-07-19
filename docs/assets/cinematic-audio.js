@@ -2,17 +2,17 @@
   "use strict";
 
   const CONFIG = Object.freeze({
-    masterGain: 0.032,
-    fadeInSeconds: 1.6,
+    masterGain: 0.16,
+    fadeInSeconds: 0.45,
     fadeOutSeconds: 0.28,
     noiseSeconds: 4,
-    sceneFilterHz: 520,
-    filterModulationHz: 55,
+    sceneFilterHz: 1600,
+    filterModulationHz: 120,
     lfoHz: 0.035,
     tones: Object.freeze([
-      { frequency: 73.42, gain: 0.34, detune: -3 },
-      { frequency: 110, gain: 0.18, detune: 2 },
-      { frequency: 146.83, gain: 0.06, detune: -2 },
+      { frequency: 146.83, gain: 0.28, detune: -3, type: "triangle" },
+      { frequency: 220, gain: 0.2, detune: 2, type: "sine" },
+      { frequency: 329.63, gain: 0.12, detune: -2, type: "sine" },
     ]),
   });
 
@@ -115,24 +115,19 @@
     const now = context.currentTime;
     const mix = registerNode(context.createGain());
     const sceneFilter = registerNode(context.createBiquadFilter());
-    const compressor = registerNode(context.createDynamicsCompressor());
     master = registerNode(context.createGain());
 
     sceneFilter.type = "lowpass";
     sceneFilter.frequency.setValueAtTime(CONFIG.sceneFilterHz, now);
     sceneFilter.Q.setValueAtTime(0.45, now);
 
-    compressor.threshold.setValueAtTime(-24, now);
-    compressor.knee.setValueAtTime(18, now);
-    compressor.ratio.setValueAtTime(4, now);
-    compressor.attack.setValueAtTime(0.08, now);
-    compressor.release.setValueAtTime(0.8, now);
+    master.gain.value = 0;
     master.gain.setValueAtTime(0, now);
 
     CONFIG.tones.forEach((tone) => {
       const oscillator = registerSource(context.createOscillator());
       const gain = registerNode(context.createGain());
-      oscillator.type = "sine";
+      oscillator.type = tone.type;
       oscillator.frequency.setValueAtTime(tone.frequency, now);
       oscillator.detune.setValueAtTime(tone.detune, now);
       gain.gain.setValueAtTime(tone.gain, now);
@@ -146,10 +141,10 @@
     noise.buffer = createNoiseBuffer(context);
     noise.loop = true;
     noiseHighPass.type = "highpass";
-    noiseHighPass.frequency.setValueAtTime(65, now);
+    noiseHighPass.frequency.setValueAtTime(120, now);
     noiseLowPass.type = "lowpass";
-    noiseLowPass.frequency.setValueAtTime(360, now);
-    noiseGain.gain.setValueAtTime(0.04, now);
+    noiseLowPass.frequency.setValueAtTime(1400, now);
+    noiseGain.gain.setValueAtTime(0.055, now);
     noise.connect(noiseHighPass).connect(noiseLowPass).connect(noiseGain).connect(mix);
 
     const lfo = registerSource(context.createOscillator());
@@ -159,7 +154,7 @@
     modulationDepth.gain.setValueAtTime(CONFIG.filterModulationHz, now);
     lfo.connect(modulationDepth).connect(sceneFilter.frequency);
 
-    mix.connect(sceneFilter).connect(compressor).connect(master).connect(context.destination);
+    mix.connect(sceneFilter).connect(master).connect(context.destination);
     sourceNodes.forEach((source) => source.start(now));
     graphBuilds += 1;
   }
@@ -174,10 +169,14 @@
     if (!context || !master) return;
     const now = context.currentTime;
     const parameter = master.gain;
-    const current = parameter.value;
-    parameter.cancelScheduledValues(now);
-    parameter.setValueAtTime(current, now);
-    parameter.linearRampToValueAtTime(Math.min(Math.max(target, 0), 0.06), now + seconds);
+    if (typeof parameter.cancelAndHoldAtTime === "function") {
+      parameter.cancelAndHoldAtTime(now);
+    } else {
+      const current = parameter.value;
+      parameter.cancelScheduledValues(now);
+      parameter.setValueAtTime(current, now);
+    }
+    parameter.linearRampToValueAtTime(Math.min(Math.max(target, 0), 0.22), now + seconds);
   }
 
   function setMasterImmediately(value) {
@@ -198,7 +197,7 @@
       if (token !== transitionToken || disposed || !userEnabled || document.hidden) return;
       needsGesture = false;
       rampMaster(CONFIG.masterGain, CONFIG.fadeInSeconds);
-      setUi("on", "電影氛圍背景配樂已播放，音量偏低。");
+      setUi("on", "電影氛圍背景配樂已播放，已針對筆電與手機喇叭調整音量。");
     } catch (error) {
       if (token !== transitionToken || disposed) return;
       userEnabled = false;

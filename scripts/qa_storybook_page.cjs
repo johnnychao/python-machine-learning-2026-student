@@ -30,6 +30,53 @@ function check(name, passed, detail) {
 async function inspectViewport(browser, label, viewport) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
   const page = await context.newPage();
+  await page.addInitScript(() => {
+    if (!window.AudioNode) return;
+
+    const nativeConnect = AudioNode.prototype.connect;
+    AudioNode.prototype.connect = function (destination, ...args) {
+      if (
+        !window.__qaAudioProbe
+        && destination === this.context?.destination
+        && args.length === 0
+      ) {
+        const analyser = this.context.createAnalyser();
+        analyser.fftSize = 2048;
+        analyser.smoothingTimeConstant = 0;
+        nativeConnect.call(this, analyser);
+        nativeConnect.call(analyser, destination);
+
+        window.__qaAudioProbe = {
+          context: this.context,
+          sample() {
+            const data = new Float32Array(analyser.fftSize);
+            analyser.getFloatTimeDomainData(data);
+            const mean = data.reduce((sum, value) => sum + value, 0) / data.length;
+            let sumSquares = 0;
+            let peak = 0;
+
+            for (const value of data) {
+              const centered = value - mean;
+              sumSquares += centered * centered;
+              peak = Math.max(peak, Math.abs(centered));
+            }
+
+            const rms = Math.sqrt(sumSquares / data.length);
+            return {
+              rms,
+              peak,
+              dbfs: rms > 0 ? 20 * Math.log10(rms) : -Infinity,
+              audioTime: this.context.currentTime,
+            };
+          },
+        };
+
+        return destination;
+      }
+
+      return nativeConnect.call(this, destination, ...args);
+    };
+  });
   const consoleErrors = [];
   const pageErrors = [];
   const badResponses = [];
@@ -193,11 +240,26 @@ async function inspectViewport(browser, label, viewport) {
     const soundControl = page.locator("#sound-toggle");
     await soundControl.click();
     await page.waitForFunction(() => window.storyAudio?.getState().contextState === "running" && document.querySelector("#sound-toggle")?.getAttribute("aria-pressed") === "true");
+    await page.waitForFunction(() => window.__qaAudioProbe?.sample().rms >= 0.02, null, { timeout: 4000 });
+    const audioSamples = await page.evaluate(async () => {
+      const samples = [];
+      for (let index = 0; index < 10; index += 1) {
+        samples.push(window.__qaAudioProbe.sample());
+        await new Promise((resolve) => window.setTimeout(resolve, 60));
+      }
+      return samples;
+    });
+    const sortedRms = audioSamples.map((sample) => sample.rms).sort((a, b) => a - b);
+    const medianRms = sortedRms[Math.floor(sortedRms.length / 2)];
+    const maxPeak = Math.max(...audioSamples.map((sample) => sample.peak));
+    const audibleSamples = audioSamples.filter((sample) => sample.rms >= 0.02).length;
+    const audioTimeAdvanced = audioSamples.at(-1).audioTime - audioSamples[0].audioTime;
     const onState = await page.evaluate(() => ({
       engine: window.storyAudio.getState(),
       pressed: Array.from(document.querySelectorAll("[data-sound-toggle]"), (control) => control.getAttribute("aria-pressed")),
       bodyState: document.body.dataset.sound,
     }));
+    check("desktop:audible_audio_output", medianRms >= 0.02 && medianRms <= 0.08 && maxPeak >= 0.03 && maxPeak <= 0.18 && audibleSamples >= 8 && audioTimeAdvanced >= 0.3, JSON.stringify({ medianRms, maxPeak, audibleSamples, audioTimeAdvanced, samples: audioSamples }));
     await soundControl.focus();
     await page.keyboard.press("Space");
     await page.waitForTimeout(420);
