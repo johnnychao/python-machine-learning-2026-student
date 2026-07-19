@@ -35,7 +35,7 @@
         <span class="sound-label">配樂：關閉</span>
       </button>
     </div>
-    <span class="visually-hidden" id="music-help">電影氛圍配樂由瀏覽器即時產生，預設關閉；按下按鈕後才會播放。</span>
+    <span class="visually-hidden" id="music-help">電影配樂〈Snow Globe〉預設關閉；按下按鈕後才會載入播放。</span>
     <span class="visually-hidden" id="sound-status" role="status" aria-live="polite"></span>
   </header>
 
@@ -118,9 +118,13 @@
     </aside>
   </main>
 
+  <audio id="cinematic-score" preload="none" loop hidden>
+    <source src="assets/audio/snow-globe-bobjt-cc0-v1.mp3" type="audio/mpeg">
+  </audio>
+
   <footer class="site-footer">
     <div><strong>恩恩統計家教</strong><p>ENEN STATISTICS・AI PRACTICUM PICTURES</p></div>
-    <p>本頁只提供教材入口，不會上傳或保存你的作業。<br>配樂由瀏覽器程序生成，預設關閉。<br>© <span id="current-year">2026</span> 恩恩統計家教</p>
+    <p>本頁只提供教材入口，不會上傳或保存你的作業。<br>配樂：<a href="https://opengameart.org/content/snow-globe" target="_blank" rel="noopener noreferrer">〈Snow Globe〉</a>・Bobjt・<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>；預設關閉。<br>© <span id="current-year">2026</span> 恩恩統計家教</p>
   </footer>
   <noscript><div class="noscript-note">這個教材入口需要 JavaScript 才能顯示四個故事。請啟用 JavaScript 後重新整理，或直接從 GitHub 開啟 Notebook。</div></noscript>
 </body>

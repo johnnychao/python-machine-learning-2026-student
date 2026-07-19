@@ -30,64 +30,25 @@ function check(name, passed, detail) {
 async function inspectViewport(browser, label, viewport) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
   const page = await context.newPage();
-  await page.addInitScript(() => {
-    if (!window.AudioNode) return;
-
-    const nativeConnect = AudioNode.prototype.connect;
-    AudioNode.prototype.connect = function (destination, ...args) {
-      if (
-        !window.__qaAudioProbe
-        && destination === this.context?.destination
-        && args.length === 0
-      ) {
-        const analyser = this.context.createAnalyser();
-        analyser.fftSize = 2048;
-        analyser.smoothingTimeConstant = 0;
-        nativeConnect.call(this, analyser);
-        nativeConnect.call(analyser, destination);
-
-        window.__qaAudioProbe = {
-          context: this.context,
-          sample() {
-            const data = new Float32Array(analyser.fftSize);
-            analyser.getFloatTimeDomainData(data);
-            const mean = data.reduce((sum, value) => sum + value, 0) / data.length;
-            let sumSquares = 0;
-            let peak = 0;
-
-            for (const value of data) {
-              const centered = value - mean;
-              sumSquares += centered * centered;
-              peak = Math.max(peak, Math.abs(centered));
-            }
-
-            const rms = Math.sqrt(sumSquares / data.length);
-            return {
-              rms,
-              peak,
-              dbfs: rms > 0 ? 20 * Math.log10(rms) : -Infinity,
-              audioTime: this.context.currentTime,
-            };
-          },
-        };
-
-        return destination;
-      }
-
-      return nativeConnect.call(this, destination, ...args);
-    };
-  });
   const consoleErrors = [];
   const pageErrors = [];
   const badResponses = [];
   const requestFailures = [];
+  const mediaRequests = [];
+  const mediaResponses = [];
 
   page.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   page.on("pageerror", (error) => pageErrors.push(error.message));
+  page.on("request", (request) => {
+    if (request.url().includes("snow-globe-bobjt-cc0-v1.mp3")) mediaRequests.push(request.url());
+  });
   page.on("requestfailed", (request) => requestFailures.push(`${request.failure()?.errorText || "failed"} ${request.url()}`));
   page.on("response", (response) => {
+    if (response.url().includes("snow-globe-bobjt-cc0-v1.mp3")) {
+      mediaResponses.push({ status: response.status(), contentType: response.headers()["content-type"] || "", url: response.url() });
+    }
     if (response.url().startsWith(baseUrl) && response.status() >= 400) {
       badResponses.push(`${response.status()} ${response.url()}`);
     }
@@ -106,8 +67,19 @@ async function inspectViewport(browser, label, viewport) {
     })),
     audioElements: document.querySelectorAll("audio").length,
     autoplayElements: document.querySelectorAll("audio[autoplay], video[autoplay]").length,
+    score: (() => {
+      const element = document.querySelector("#cinematic-score");
+      return element ? {
+        paused: element.paused,
+        currentTime: element.currentTime,
+        preload: element.preload,
+        loop: element.loop,
+        source: element.querySelector("source")?.src || "",
+      } : null;
+    })(),
     engine: window.storyAudio?.getState() || null,
   }));
+  const initialMediaRequestCount = mediaRequests.length;
 
   const lazyImages = page.locator('img[loading="lazy"]');
   for (let index = 0; index < await lazyImages.count(); index += 1) {
@@ -214,7 +186,7 @@ async function inspectViewport(browser, label, viewport) {
   check(`${label}:no_login_instruction`, !/(KAGGLE_API_TOKEN|kaggle\.json|Kaggle.{0,8}(Token|Secret))/i.test(result.bodyText), "visible text checked");
   check(`${label}:no_prohibited_font`, result.fontFamilies.every((family) => !prohibitedFontPattern.test(family)), JSON.stringify(result.fontFamilies));
   check(`${label}:brand_palette`, JSON.stringify(result.palette).toLowerCase() === JSON.stringify({ navy: "#2c3e50", slate: "#5d6d7e", orange: "#f39c12", mist: "#eaedef" }), JSON.stringify(result.palette));
-  check(`${label}:audio_default_off`, initialAudio.bodyState === "off" && initialAudio.controls.length === 2 && initialAudio.controls.every((control) => control.tag === "BUTTON" && control.type === "button" && control.pressed === "false" && !control.disabled) && initialAudio.autoplayElements === 0 && initialAudio.engine?.contextState === "not-created" && initialAudio.engine?.graphBuilds === 0, JSON.stringify(initialAudio));
+  check(`${label}:audio_default_off`, initialAudio.bodyState === "off" && initialAudio.controls.length === 2 && initialAudio.controls.every((control) => control.tag === "BUTTON" && control.type === "button" && control.pressed === "false" && !control.disabled) && initialAudio.audioElements === 1 && initialAudio.autoplayElements === 0 && initialAudio.score?.paused === true && initialAudio.score?.currentTime === 0 && initialAudio.score?.preload === "none" && initialAudio.score?.loop === true && initialAudio.score?.source.endsWith("/assets/audio/snow-globe-bobjt-cc0-v1.mp3") && initialAudio.engine?.paused === true && initialAudio.engine?.playAttempts === 0 && initialMediaRequestCount === 0, JSON.stringify({ ...initialAudio, initialMediaRequestCount }));
 
   await page.screenshot({
     path: path.join(outputDir, `cinematic-${label}.png`),
@@ -238,28 +210,22 @@ async function inspectViewport(browser, label, viewport) {
 
   if (label === "desktop") {
     const soundControl = page.locator("#sound-toggle");
+    const scoreResponsePromise = page.waitForResponse((mediaResponse) => mediaResponse.url().includes("snow-globe-bobjt-cc0-v1.mp3"));
     await soundControl.click();
-    await page.waitForFunction(() => window.storyAudio?.getState().contextState === "running" && document.querySelector("#sound-toggle")?.getAttribute("aria-pressed") === "true");
-    await page.waitForFunction(() => window.__qaAudioProbe?.sample().rms >= 0.02, null, { timeout: 4000 });
-    const audioSamples = await page.evaluate(async () => {
-      const samples = [];
-      for (let index = 0; index < 10; index += 1) {
-        samples.push(window.__qaAudioProbe.sample());
-        await new Promise((resolve) => window.setTimeout(resolve, 60));
-      }
-      return samples;
+    const scoreResponse = await scoreResponsePromise;
+    await page.waitForFunction(() => {
+      const state = window.storyAudio?.getState();
+      return state?.paused === false && state.currentTime > 0.25 && document.querySelector("#sound-toggle")?.getAttribute("aria-pressed") === "true";
     });
-    const sortedRms = audioSamples.map((sample) => sample.rms).sort((a, b) => a - b);
-    const medianRms = sortedRms[Math.floor(sortedRms.length / 2)];
-    const maxPeak = Math.max(...audioSamples.map((sample) => sample.peak));
-    const audibleSamples = audioSamples.filter((sample) => sample.rms >= 0.02).length;
-    const audioTimeAdvanced = audioSamples.at(-1).audioTime - audioSamples[0].audioTime;
+    const playbackStart = await page.evaluate(() => window.storyAudio.getState());
+    await page.waitForTimeout(700);
     const onState = await page.evaluate(() => ({
       engine: window.storyAudio.getState(),
       pressed: Array.from(document.querySelectorAll("[data-sound-toggle]"), (control) => control.getAttribute("aria-pressed")),
       bodyState: document.body.dataset.sound,
     }));
-    check("desktop:audible_audio_output", medianRms >= 0.02 && medianRms <= 0.08 && maxPeak >= 0.03 && maxPeak <= 0.18 && audibleSamples >= 8 && audioTimeAdvanced >= 0.3, JSON.stringify({ medianRms, maxPeak, audibleSamples, audioTimeAdvanced, samples: audioSamples }));
+    check("desktop:audio_asset_response", [200, 206].includes(scoreResponse.status()) && (scoreResponse.headers()["content-type"] || "").startsWith("audio/") && mediaRequests.length >= 1 && mediaResponses.length >= 1, JSON.stringify({ status: scoreResponse.status(), contentType: scoreResponse.headers()["content-type"], mediaRequests, mediaResponses }));
+    check("desktop:audio_playback_progress", onState.engine.paused === false && onState.engine.currentTime - playbackStart.currentTime >= 0.5 && onState.engine.duration >= 86 && onState.engine.duration <= 87 && onState.engine.volume >= 0.33 && onState.engine.volume <= 0.35 && onState.engine.loop === true && onState.engine.readyState >= 2 && onState.engine.source.endsWith("/assets/audio/snow-globe-bobjt-cc0-v1.mp3"), JSON.stringify({ playbackStart, onState }));
     await soundControl.focus();
     await page.keyboard.press("Space");
     await page.waitForTimeout(420);
@@ -269,7 +235,9 @@ async function inspectViewport(browser, label, viewport) {
       bodyState: document.body.dataset.sound,
       focusId: document.activeElement?.id,
     }));
-    check("desktop:audio_toggle", onState.engine.graphBuilds === 1 && onState.engine.sourceCount === 5 && onState.engine.userEnabled === true && onState.pressed.every((value) => value === "true") && onState.bodyState === "on" && offState.engine.graphBuilds === 1 && offState.engine.sourceCount === 5 && offState.engine.userEnabled === false && offState.engine.contextState === "suspended" && offState.pressed.every((value) => value === "false") && offState.bodyState === "off" && offState.focusId === "sound-toggle", JSON.stringify({ onState, offState }));
+    await page.waitForTimeout(260);
+    const pausedLater = await page.evaluate(() => window.storyAudio.getState().currentTime);
+    check("desktop:audio_toggle", onState.engine.userEnabled === true && onState.pressed.every((value) => value === "true") && onState.bodyState === "on" && offState.engine.userEnabled === false && offState.engine.paused === true && Math.abs(pausedLater - offState.engine.currentTime) < 0.05 && offState.pressed.every((value) => value === "false") && offState.bodyState === "off" && offState.focusId === "sound-toggle", JSON.stringify({ onState, offState, pausedLater }));
   }
 
   check(`${label}:console`, consoleErrors.length === 0 && pageErrors.length === 0, JSON.stringify({ consoleErrors, pageErrors }));
@@ -308,7 +276,7 @@ async function main() {
         audioState: window.storyAudio?.getState() || null,
       };
     });
-    check("reduced_motion", reducedState.mediaMatches && reducedState.scrollBehavior === "auto" && reducedState.revealOpacity === "1" && reducedState.revealTransform === "none" && reducedState.grainAnimation === "none" && reducedState.sweepAnimation === "none" && reducedState.audioState?.contextState === "not-created", JSON.stringify(reducedState));
+    check("reduced_motion", reducedState.mediaMatches && reducedState.scrollBehavior === "auto" && reducedState.revealOpacity === "1" && reducedState.revealTransform === "none" && reducedState.grainAnimation === "none" && reducedState.sweepAnimation === "none" && reducedState.audioState?.paused === true && reducedState.audioState?.playAttempts === 0, JSON.stringify(reducedState));
     await reducedContext.close();
 
     const failed = checks.filter((item) => item.status === "fail");

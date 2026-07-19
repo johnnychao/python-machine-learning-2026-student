@@ -1160,6 +1160,18 @@ main {
   text-align: right;
 }
 
+.site-footer a {
+  color: #aebbc4;
+  text-decoration-color: rgba(243, 156, 18, 0.68);
+  text-underline-offset: 0.18em;
+}
+
+.site-footer a:focus-visible {
+  border-radius: 0.18rem;
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
 .noscript-note {
   position: fixed;
   right: 1rem;

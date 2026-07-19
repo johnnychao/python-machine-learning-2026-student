@@ -1,0 +1,18 @@
+Track: Snow Globe (expanded version)
+Author: Bobjt
+Source page: https://opengameart.org/content/snow-globe
+Original download: https://opengameart.org/sites/default/files/snow_globe_-_expanded_0.mp3
+License: Creative Commons CC0 1.0 Universal
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+Source notice: "None needed; 'bobjt' if you'd like"
+Downloaded: 2026-07-20
+
+Local file: snow-globe-bobjt-cc0-v1.mp3
+Format: MP3, stereo, 44.1 kHz, approximately 160 kbps
+Duration: 86.57 seconds
+Size: 1,735,492 bytes
+Local modifications: none; only the filename was changed
+SHA-256: 5061c178b57c54ae0e5741290fce101a1164851b71d6d6ca6f8b08d44d07aaf5
+
+CC0 permits copying, modification, distribution, performance, and commercial
+use without asking permission. No endorsement by the author is implied.
