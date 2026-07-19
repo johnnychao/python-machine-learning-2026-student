@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import hashlib
 import json
 import re
 from datetime import datetime, timezone
@@ -16,7 +17,10 @@ PUBLIC_PAGE = REPO / "docs" / "index.html"
 PUBLIC_STYLE = REPO / "docs" / "assets" / "styles.css"
 PUBLIC_APP = REPO / "docs" / "assets" / "app.js"
 PUBLIC_AUDIO = REPO / "docs" / "assets" / "cinematic-audio.js"
+PUBLIC_SCORE = REPO / "docs" / "assets" / "audio" / "snow-globe-bobjt-cc0-v1.mp3"
+PUBLIC_SCORE_LICENSE = REPO / "docs" / "assets" / "audio" / "SNOW_GLOBE_LICENSE.txt"
 REPORT_PATH = REPO / "reports" / "ai_solution_practicum_validation.json"
+EXPECTED_SCORE_SHA256 = "5061c178b57c54ae0e5741290fce101a1164851b71d6d6ca6f8b08d44d07aaf5"
 
 EXPECTED_NOTEBOOKS = [
     "00_colab_ready.ipynb",
@@ -33,6 +37,8 @@ REQUIRED_FILES = [
     PUBLIC_STYLE,
     PUBLIC_APP,
     PUBLIC_AUDIO,
+    PUBLIC_SCORE,
+    PUBLIC_SCORE_LICENSE,
 ]
 
 BANNED_CODE_PATTERNS = {
@@ -355,6 +361,7 @@ def validate_public_page() -> list[dict[str, str]]:
     css = PUBLIC_STYLE.read_text(encoding="utf-8") if PUBLIC_STYLE.is_file() else ""
     app_js = PUBLIC_APP.read_text(encoding="utf-8") if PUBLIC_APP.is_file() else ""
     audio_js = PUBLIC_AUDIO.read_text(encoding="utf-8") if PUBLIC_AUDIO.is_file() else ""
+    score_license = PUBLIC_SCORE_LICENSE.read_text(encoding="utf-8") if PUBLIC_SCORE_LICENSE.is_file() else ""
     public_source = "\n".join([html, css, app_js, audio_js])
     checks = [result("public_page:exists", True, str(PUBLIC_PAGE))]
     checks.append(
@@ -394,12 +401,41 @@ def validate_public_page() -> list[dict[str, str]]:
             (
                 html.count("data-sound-toggle") >= 2
                 and "cinematic-audio.js" in html
+                and '<audio id="cinematic-score" preload="none" loop hidden>' in html
+                and "assets/audio/snow-globe-bobjt-cc0-v1.mp3" in html
                 and "autoplay" not in public_source.lower()
                 and 'data-sound="off"' in html
                 and 'setUi("off"' in audio_js
+                and "await audio.play()" in audio_js
                 and 'addEventListener("click", handleToggle)' in audio_js
             ),
-            "procedural soundtrack is present, defaults off, and starts from an explicit click",
+            "the local CC0 soundtrack defaults off and starts only from an explicit click",
+        )
+    )
+    score_hash = hashlib.sha256(PUBLIC_SCORE.read_bytes()).hexdigest() if PUBLIC_SCORE.is_file() else "missing"
+    checks.append(
+        result(
+            "public_page:score_asset_integrity",
+            PUBLIC_SCORE.is_file()
+            and PUBLIC_SCORE.stat().st_size == 1_735_492
+            and score_hash == EXPECTED_SCORE_SHA256,
+            f"size={PUBLIC_SCORE.stat().st_size if PUBLIC_SCORE.is_file() else 0}; sha256={score_hash}",
+        )
+    )
+    checks.append(
+        result(
+            "public_page:score_license",
+            all(
+                marker in score_license
+                for marker in [
+                    "Track: Snow Globe",
+                    "Author: Bobjt",
+                    "License: Creative Commons CC0 1.0 Universal",
+                    "https://opengameart.org/content/snow-globe",
+                    EXPECTED_SCORE_SHA256,
+                ]
+            ),
+            "track, author, source, CC0 license, and checksum are recorded",
         )
     )
     checks.append(
