@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#13283a">
+  <meta name="description" content="AI 解決方案實戰日學生入口：四站輪轉、Colab、Kaggle、30 分鐘計時與實驗紀錄。">
+  <title>AI 解決方案實戰控制台｜學生入口</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2313283a'/%3E%3Cpath d='M10 12h44v8H10zm0 32h44v8H10z' fill='%23ff6a1a'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='21' font-weight='700' fill='%23fff8e8'%3ED6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/course-manifest.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+
+  <div class="safety-rail" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand-lockup" href="#top" aria-label="回到頁首">
+      <span class="brand-mark" aria-hidden="true">D6</span>
+      <span>
+        <strong>AI SOLUTION LAB</strong>
+        <small>STUDENT FIELD CONSOLE</small>
+      </span>
+    </a>
+    <div class="header-meta" aria-label="系統狀態">
+      <span><i class="status-light" aria-hidden="true"></i> LOCAL-FIRST</span>
+      <button class="header-timer" type="button" id="header-timer" aria-label="輪轉計時器 30:00，點選前往計時器">◷ 30:00</button>
+      <a id="repo-link" href="https://github.com/johnnychao/python-machine-learning-2026-student" target="_blank" rel="noopener noreferrer">GITHUB REPO ↗</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="kicker"><span>DAY 06</span>／AI 解決方案實戰日</p>
+        <h1 id="page-title">不是跑完模型。<br><em>是留下可用的證據。</em></h1>
+        <p class="hero-lede" id="course-subtitle">四站輪轉體驗＋選擇一案完整實作</p>
+        <p class="hero-brief">每站 30 分鐘：理解問題、跑基準、只改一項、記錄差異。完成四站後，選一個情境做成可驗證的最小解決方案。</p>
+        <nav class="jump-nav" aria-label="頁面快速導覽">
+          <a href="#preflight">00 起飛檢查</a>
+          <a href="#stations">01–04 四站任務</a>
+          <a href="#project-select">選擇完整實作</a>
+          <a href="#experiment-card">填實驗卡</a>
+        </nav>
+      </div>
+
+      <aside class="mission-gauge" aria-labelledby="progress-title">
+        <div class="gauge-topline">
+          <span id="progress-title">MISSION READINESS</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <progress id="mission-progress" max="100" value="0">0%</progress>
+        <div class="gauge-counts">
+          <div><strong id="preflight-count">0/5</strong><span>起飛檢查</span></div>
+          <div><strong id="station-count">0/4</strong><span>輪轉完成</span></div>
+          <div><strong id="selection-count">0/1</strong><span>完整實作案</span></div>
+        </div>
+        <p id="mission-message">先完成起飛檢查，再啟動第一站。</p>
+      </aside>
+    </section>
+
+    <section class="publication-note" id="publication-note" aria-labelledby="publication-title">
+      <span class="notice-code" aria-hidden="true">!</span>
+      <div>
+        <h2 id="publication-title">教材發布提示</h2>
+        <p id="publication-copy">若 Colab 尚未讀取到最新檔案，發布前可先下載 notebook 後上傳 Colab。</p>
+      </div>
+    </section>
+
+    <section class="work-section" id="preflight" aria-labelledby="preflight-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">CHECKPOINT 00</p>
+          <h2 id="preflight-title">先讓環境可以工作</h2>
+        </div>
+        <p>不要在輪轉開始後才處理登入、權限或執行階段。勾選紀錄只保存在這台瀏覽器。</p>
+      </header>
+
+      <div class="preflight-layout">
+        <div class="paper-panel preflight-panel">
+          <div class="panel-label"><span>PRE-FLIGHT LOG</span><span id="preflight-status">WAITING</span></div>
+          <div class="checklist" id="preflight-list"></div>
+          <div class="resource-strip">
+            <a class="resource-link resource-link--primary" id="preflight-colab" href="#" target="_blank" rel="noopener noreferrer">
+              <span>OPEN IN</span> COLAB ↗
+            </a>
+            <a class="resource-link" id="preflight-local" href="#" download>
+              <span>LOCAL FILE</span> 下載 PREFLIGHT
+            </a>
+          </div>
+        </div>
+
+        <aside class="timer-console" aria-labelledby="timer-title">
+          <div class="console-screws" aria-hidden="true"><i></i><i></i></div>
+          <div class="timer-label">
+            <span id="timer-title">ROTATION TIMER</span>
+            <span id="active-station-label">未指定站別</span>
+          </div>
+          <output id="timer-display" class="timer-display" aria-live="off">30:00</output>
+          <div class="timer-progress" aria-hidden="true"><span id="timer-progress-bar"></span></div>
+          <p class="timer-status" id="timer-status" role="status">準備好後，從任一站啟動 30 分鐘。</p>
+          <div class="timer-actions">
+            <button class="button button--signal" type="button" id="timer-toggle">開始</button>
+            <button class="button button--dark" type="button" id="timer-reset">重設 30:00</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rhythm-section" aria-labelledby="rhythm-title">
+      <header>
+        <p class="section-index">STANDARD CYCLE</p>
+        <h2 id="rhythm-title">每一站都走相同節奏</h2>
+      </header>
+      <ol class="rhythm-list" id="rhythm-list"></ol>
+    </section>
+
+    <section class="work-section stations-section" id="stations" aria-labelledby="stations-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">ROTATION FLOOR</p>
+          <h2 id="stations-title">四個客戶，四種技術</h2>
+        </div>
+        <p>每站只修改一個變因。完成核心執行、比較與紀錄三項，才算離站。</p>
+      </header>
+      <div class="station-grid" id="station-grid"></div>
+    </section>
+
+    <section class="selection-section" id="project-select" aria-labelledby="selection-title">
+      <div class="selection-copy">
+        <p class="section-index">DEEP-DIVE ASSIGNMENT</p>
+        <h2 id="selection-title">選擇一案，做完整實作</h2>
+        <p>四站都體驗過後，選一個你的小組要深入的情境。不是挑最炫的模型，而是挑能說清楚問題、證據與限制的方案。</p>
+        <div class="selection-rule">
+          <span>最低交付</span>
+          <strong>Baseline ＋ Candidate ＋ 失敗案例 ＋ 人工介入規則</strong>
+        </div>
+      </div>
+      <fieldset class="project-choices" id="project-choices">
+        <legend class="sr-only">選擇完整實作案</legend>
+      </fieldset>
+    </section>
+
+    <section class="work-section experiment-section" id="experiment-card" aria-labelledby="experiment-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">FIELD RECORD</p>
+          <h2 id="experiment-title">迷你實驗卡</h2>
+        </div>
+        <p>切換站別會保留各站自己的紀錄。欄位輸入後自動存到瀏覽器，不會上傳。</p>
+      </header>
+
+      <form class="experiment-card" id="experiment-form">
+        <div class="card-serial">
+          <span>EXPERIMENT RECORD</span>
+          <span id="record-id">LAB-——</span>
+        </div>
+
+        <div class="form-grid form-grid--meta">
+          <label class="field">
+            <span>小組／姓名</span>
+            <input type="text" id="team-name" name="teamName" autocomplete="organization" placeholder="例：第 3 組">
+          </label>
+          <label class="field">
+            <span>紀錄站別</span>
+            <select id="experiment-station" name="station" aria-describedby="station-help"></select>
+            <small id="station-help">選為完整實作案時，這裡會自動切換。</small>
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label class="field field--wide">
+            <span>我修改了</span>
+            <textarea id="changed" name="changed" rows="2" placeholder="只寫一個改動，例：分類門檻由 0.5 改為 0.3"></textarea>
+          </label>
+          <label class="field">
+            <span>原本結果</span>
+            <textarea id="before-result" name="beforeResult" rows="3" placeholder="寫數值、畫面或行為"></textarea>
+          </label>
+          <label class="field">
+            <span>修改後結果</span>
+            <textarea id="after-result" name="afterResult" rows="3" placeholder="使用同一種方式比較"></textarea>
+          </label>
+          <label class="field">
+            <span>可能原因</span>
+            <textarea id="reason" name="reason" rows="3" placeholder="為什麼有／沒有改善？"></textarea>
+          </label>
+          <label class="field">
+            <span>目前最大的失敗情境</span>
+            <textarea id="failure" name="failure" rows="3" placeholder="不要只留下最好看的結果"></textarea>
+          </label>
+          <label class="field field--wide">
+            <span>下一步與人工介入規則</span>
+            <textarea id="next-step" name="nextStep" rows="3" placeholder="下一個要驗證什麼？何時不能相信模型？"></textarea>
+          </label>
+        </div>
+
+        <div class="card-actions">
+          <p class="save-state" id="save-state" role="status"><i aria-hidden="true"></i> 尚未輸入</p>
+          <div>
+            <button class="button button--outline" type="button" id="copy-summary">複製摘要</button>
+            <button class="button button--signal" type="button" id="download-markdown">下載 Markdown 紀錄</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>LOCAL RECORD / NO UPLOAD</strong>
+      <p>進度、選案與實驗卡只存在目前瀏覽器的 localStorage。共用電腦使用完畢後請清除。</p>
+    </div>
+    <button class="reset-link" type="button" id="open-reset-dialog">重設所有本機紀錄</button>
+  </footer>
+
+  <dialog class="reset-dialog" id="reset-dialog" aria-labelledby="reset-title">
+    <form method="dialog">
+      <span class="dialog-code" aria-hidden="true">RESET / LOCAL</span>
+      <h2 id="reset-title">確定清除所有紀錄？</h2>
+      <p>這會刪除起飛檢查、四站進度、計時器、完整實作案與所有實驗卡。下載過的 Markdown 不受影響。</p>
+      <div class="dialog-actions">
+        <button class="button button--outline" value="cancel">取消</button>
+        <button class="button button--danger" value="confirm" id="confirm-reset">確定清除</button>
+      </div>
+    </form>
+  </dialog>
+
+  <noscript>
+    <div class="noscript-note">此入口需要 JavaScript 才能保存進度與產生四站連結。請允許 JavaScript 後重新整理。</div>
+  </noscript>
+</body>
+</html>

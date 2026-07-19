@@ -1,0 +1,282 @@
+{
+  "status": "pass",
+  "checked_at_utc": "2026-07-19T06:37:35+00:00",
+  "scope": "Static local validation only; does not prove fresh Google Colab execution or remote publication.",
+  "summary": {
+    "total": 54,
+    "passed": 54,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "check": "required_file:DAY6_AI_SOLUTION_LAB.md",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\DAY6_AI_SOLUTION_LAB.md"
+    },
+    {
+      "check": "required_file:data/ai_solution_lab/datasets.json",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\data\\ai_solution_lab\\datasets.json"
+    },
+    {
+      "check": "required_file:docs/index.html",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\index.html"
+    },
+    {
+      "check": "required_file:docs/assets/styles.css",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\styles.css"
+    },
+    {
+      "check": "required_file:docs/assets/app.js",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\app.js"
+    },
+    {
+      "check": "required_file:docs/assets/course-manifest.js",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\course-manifest.js"
+    },
+    {
+      "check": "required_file:practice/day6_ai_solution_lab/experiment_card.md",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\practice\\day6_ai_solution_lab\\experiment_card.md"
+    },
+    {
+      "check": "required_file:practice/day6_ai_solution_lab/project_canvas.md",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\practice\\day6_ai_solution_lab\\project_canvas.md"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\day6_ai_solution_lab\\00_preflight.ipynb"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=10, nbformat=4"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:required_todo",
+      "status": "pass",
+      "detail": "expected=0, found=0"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:fixed_seed",
+      "status": "pass",
+      "detail": "fixed classroom seed"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:kaggle_source",
+      "status": "pass",
+      "detail": "Kaggle source/context present"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:limitations",
+      "status": "pass",
+      "detail": "limitations are explicit"
+    },
+    {
+      "check": "notebook:00_preflight.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook does not ship stale execution output"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\day6_ai_solution_lab\\01_cnn_pet_router.ipynb"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=18, nbformat=4"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:required_todo",
+      "status": "pass",
+      "detail": "expected=1, found=1"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:fixed_seed",
+      "status": "pass",
+      "detail": "fixed classroom seed"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:kaggle_source",
+      "status": "pass",
+      "detail": "Kaggle source/context present"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:limitations",
+      "status": "pass",
+      "detail": "limitations are explicit"
+    },
+    {
+      "check": "notebook:01_cnn_pet_router.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook does not ship stale execution output"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\day6_ai_solution_lab\\02_rnn_disaster_triage.ipynb"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=16, nbformat=4"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:required_todo",
+      "status": "pass",
+      "detail": "expected=1, found=1"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:fixed_seed",
+      "status": "pass",
+      "detail": "fixed classroom seed"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:kaggle_source",
+      "status": "pass",
+      "detail": "Kaggle source/context present"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:limitations",
+      "status": "pass",
+      "detail": "limitations are explicit"
+    },
+    {
+      "check": "notebook:02_rnn_disaster_triage.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook does not ship stale execution output"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\day6_ai_solution_lab\\03_gan_monet_studio.ipynb"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=17, nbformat=4"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:required_todo",
+      "status": "pass",
+      "detail": "expected=1, found=1"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:fixed_seed",
+      "status": "pass",
+      "detail": "fixed classroom seed"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:kaggle_source",
+      "status": "pass",
+      "detail": "Kaggle source/context present"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:limitations",
+      "status": "pass",
+      "detail": "limitations are explicit"
+    },
+    {
+      "check": "notebook:03_gan_monet_studio.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook does not ship stale execution output"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:exists",
+      "status": "pass",
+      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\day6_ai_solution_lab\\04_rl_connectx_agent.ipynb"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:structure",
+      "status": "pass",
+      "detail": "cells=15, nbformat=4"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:python_syntax",
+      "status": "pass",
+      "detail": "all code cells compile after top-level magic removal"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:required_todo",
+      "status": "pass",
+      "detail": "expected=1, found=1"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:fixed_seed",
+      "status": "pass",
+      "detail": "fixed classroom seed"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:kaggle_source",
+      "status": "pass",
+      "detail": "Kaggle source/context present"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:limitations",
+      "status": "pass",
+      "detail": "limitations are explicit"
+    },
+    {
+      "check": "notebook:04_rl_connectx_agent.ipynb:clean_outputs",
+      "status": "pass",
+      "detail": "student notebook does not ship stale execution output"
+    },
+    {
+      "check": "dataset_manifest:handles",
+      "status": "pass",
+      "detail": "handles=['balraj98/monet2photo', 'samuelcortinhas/cats-and-dogs-image-classification', 'vstepanenko/disaster-tweets']"
+    },
+    {
+      "check": "dataset_manifest:licenses",
+      "status": "pass",
+      "detail": "all sources include listed license/terms"
+    },
+    {
+      "check": "security:no_hardcoded_kaggle_credentials",
+      "status": "pass",
+      "detail": "no credential-shaped literals"
+    },
+    {
+      "check": "security:kaggle_ignored",
+      "status": "pass",
+      "detail": "credential/cache ignore rules present"
+    },
+    {
+      "check": "website:semantic_accessibility",
+      "status": "pass",
+      "detail": "Traditional Chinese language and semantic landmarks"
+    },
+    {
+      "check": "website:no_credentials",
+      "status": "pass",
+      "detail": "website contains no credential material"
+    }
+  ]
+}

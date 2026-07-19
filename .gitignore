@@ -3,6 +3,12 @@
 __pycache__/
 .ipynb_checkpoints/
 
+# Kaggle / Colab credentials and local download cache
+kaggle.json
+.kaggle/
+.cache/kagglehub/
+data/ai_solution_lab/cache/
+
 # private or generated heavy artifacts
 outputs/
 work/

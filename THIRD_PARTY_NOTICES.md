@@ -8,6 +8,18 @@ This course package contains Colab-ready notebooks derived from:
 
 The original code repository is licensed under the MIT License. This project keeps attribution and does not include the copyrighted book PDF or extracted full text in public-facing repos.
 
+## Day 6 AI Solution Lab Sources
+
+The Day 6 notebooks download teaching data at runtime and do not redistribute the datasets in this repository.
+
+- CNN teaching dataset: `samuelcortinhas/cats-and-dogs-image-classification` on Kaggle; Kaggle lists it as CC0.
+- RNN teaching dataset: `vstepanenko/disaster-tweets` on Kaggle; Kaggle lists it as CC0. The text may contain offensive language.
+- GAN teaching dataset: `balraj98/monet2photo` on Kaggle; Kaggle lists the license as “Other (specified)”. Recheck its terms before creating or redistributing a classroom cache.
+- RL environment: Kaggle Connect X and the official `Kaggle/kaggle-environments` project. Connect X is an interactive environment, not a static training dataset.
+- The GAN rotation notebook uses Google Magenta Arbitrary Image Stylization as a fast classroom proxy and explicitly does not claim that output is CycleGAN. A CycleGAN claim requires a separately verified generator checkpoint and model card.
+
+Exact URLs, classroom scope, and the date last checked are recorded in `data/ai_solution_lab/datasets.json`.
+
 ## MIT License From Original Code Repository
 
 ```text
