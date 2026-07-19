@@ -1,0 +1,197 @@
+(function () {
+  "use strict";
+
+  window.COURSE_MANIFEST = {
+    "schemaVersion": "1.0.0",
+    "courseTitle": "AI 解決方案實戰控制台",
+    "courseSubtitle": "四站輪轉體驗＋選擇一案完整實作",
+    "repo": {
+      "owner": "johnnychao",
+      "name": "python-machine-learning-2026-student",
+      "branch": "main",
+      "url": "https://github.com/johnnychao/python-machine-learning-2026-student"
+    },
+    "rotationMinutes": 30,
+    "publication": {
+      "state": "pre-push",
+      "label": "教材發布提示",
+      "note": "若 Colab 尚未讀取到最新檔案，代表 notebook 可能還沒推送到 GitHub。發布前可先下載 notebook 後上傳 Colab。"
+    },
+    "preflight": {
+      "title": "00｜起飛前檢查",
+      "notebookPath": "notebooks/day6_ai_solution_lab/00_preflight.ipynb",
+      "links": {
+        "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/day6_ai_solution_lab/00_preflight.ipynb",
+        "local": "../notebooks/day6_ai_solution_lab/00_preflight.ipynb"
+      },
+      "checklist": [
+        {
+          "id": "google-account",
+          "label": "已登入 Google 帳號，並可開啟 Google Colab。"
+        },
+        {
+          "id": "kaggle-account",
+          "label": "已登入 Kaggle；遇到競賽資料時已按下 Join／接受規則。"
+        },
+        {
+          "id": "runtime",
+          "label": "已確認 Colab 執行階段；GPU 可用就使用，無 GPU 也能走 CPU 備援。"
+        },
+        {
+          "id": "preflight-notebook",
+          "label": "已執行 00_preflight 的環境、套件與路徑檢查。"
+        },
+        {
+          "id": "save-copy",
+          "label": "已將 notebook 另存到自己的雲端硬碟，避免直接改到唯讀版本。"
+        }
+      ]
+    },
+    "rotationRhythm": [
+      {
+        "minute": "00–05",
+        "label": "讀任務",
+        "detail": "理解客戶、輸入與決策風險。"
+      },
+      {
+        "minute": "05–13",
+        "label": "跑基準",
+        "detail": "執行已準備的最小可行流程。"
+      },
+      {
+        "minute": "13–25",
+        "label": "改一項",
+        "detail": "只改一個設定，比較前後差異。"
+      },
+      {
+        "minute": "25–30",
+        "label": "留證據",
+        "detail": "記錄結果、失敗情境與下一個假設。"
+      }
+    ],
+    "stations": [
+      {
+        "id": "cnn",
+        "sequence": "01",
+        "shortCode": "CNN",
+        "accent": "#c84d2f",
+        "title": "動物之家照片智慧分流",
+        "client": "幸福毛孩動物之家",
+        "story": "把高信心的貓狗照片自動分流；模糊、非貓狗或不確定圖片必須交由人工確認。",
+        "mission": "只修改 REVIEW_THRESHOLD，比較自動處理率、人工覆核率與高信心案件正確率。",
+        "data": "Cats and Dogs image classification",
+        "dataDetail": "samuelcortinhas/cats-and-dogs-image-classification；CC0，約千張影像，適合 30 分鐘課堂下載與驗證。",
+        "focus": "影像分類／信心門檻／拒絕預測",
+        "changeOptions": [
+          "必改：REVIEW_THRESHOLD（0.60／0.75／0.85）",
+          "保持同一測試集與亂數種子",
+          "不要同時更換模型或資料量"
+        ],
+        "evidence": [
+          "Accuracy 或 F1 的前後差異",
+          "至少一張失敗圖片",
+          "何時應轉交人工覆核"
+        ],
+        "cpuFallback": "凍結預訓練 Backbone，只訓練最後的分類層；必要時減少樣本與 Epoch。",
+        "notebookPath": "notebooks/day6_ai_solution_lab/01_cnn_pet_router.ipynb",
+        "links": {
+          "kaggle": "https://www.kaggle.com/datasets/samuelcortinhas/cats-and-dogs-image-classification",
+          "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/day6_ai_solution_lab/01_cnn_pet_router.ipynb",
+          "local": "../notebooks/day6_ai_solution_lab/01_cnn_pet_router.ipynb"
+        }
+      },
+      {
+        "id": "rnn",
+        "sequence": "02",
+        "shortCode": "RNN",
+        "accent": "#08766f",
+        "title": "災害應變訊息智慧分流",
+        "client": "城市災害應變中心",
+        "story": "辨認貼文是否可能描述真實災情，但只做優先分流，不替代救援派遣的人工決策。",
+        "mission": "只修改 DISASTER_THRESHOLD，比較 Recall、F1、人工審查量與漏報的取捨。",
+        "data": "Disaster Tweets",
+        "dataDetail": "vstepanenko/disaster-tweets；CC0，約 11,000 則短訊息；經典競賽題作為延伸背景。",
+        "focus": "短文本分類／錯誤成本／人工優先審查",
+        "changeOptions": [
+          "必改：DISASTER_THRESHOLD（0.30／0.50／0.70）",
+          "保持同一模型、切分與亂數種子",
+          "觀察門檻如何改變誤報與漏報"
+        ],
+        "evidence": [
+          "F1 與 Recall 的前後差異",
+          "一個 False Negative",
+          "門檻改變後的人工審查量"
+        ],
+        "cpuFallback": "縮小 Embedding 維度、序列長度與 Epoch；若時間不足，以 TF-IDF 基準完成比較。",
+        "notebookPath": "notebooks/day6_ai_solution_lab/02_rnn_disaster_triage.ipynb",
+        "links": {
+          "kaggle": "https://www.kaggle.com/datasets/vstepanenko/disaster-tweets",
+          "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/day6_ai_solution_lab/02_rnn_disaster_triage.ipynb",
+          "local": "../notebooks/day6_ai_solution_lab/02_rnn_disaster_triage.ipynb"
+        }
+      },
+      {
+        "id": "gan",
+        "sequence": "03",
+        "shortCode": "GAN",
+        "accent": "#b17b16",
+        "title": "莫內風格影像工作室",
+        "client": "城市文創提案工作室",
+        "story": "把一般風景照片轉成莫內風格概念圖，同時檢查構圖、人物與文字是否被破壞。",
+        "mission": "只修改 BLEND_ALPHA，比較內容保留、莫內風格感與破圖情形。",
+        "data": "Monet2Photo",
+        "dataDetail": "balraj98/monet2photo；1,193 張 Monet 與 7,038 張照片；Kaggle 標示為 Other license。",
+        "focus": "NST 教學代理／內容保留／風格感",
+        "scopeNote": "本站 Candidate 是快速 Neural Style Transfer（NST）代理模型，不是 CycleGAN。只有選為完整專題後，才改用教師已驗證來源與雜湊的 CycleGAN Generator checkpoint。",
+        "changeOptions": [
+          "必改：BLEND_ALPHA（0.40／0.75／1.00）",
+          "保持同一張內容圖與風格參考圖",
+          "不要把 NST 結果寫成 CycleGAN 輸出"
+        ],
+        "evidence": [
+          "內容保留 1–5 分",
+          "莫內風格程度 1–5 分",
+          "至少一個破圖或變形案例"
+        ],
+        "cpuFallback": "只跑預訓練 NST 推論；若模型暫時不可用，保留色彩 Baseline 完成 blend 實驗，不訓練 CycleGAN。",
+        "notebookPath": "notebooks/day6_ai_solution_lab/03_gan_monet_studio.ipynb",
+        "links": {
+          "kaggle": "https://www.kaggle.com/c/gan-getting-started/data",
+          "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/day6_ai_solution_lab/03_gan_monet_studio.ipynb",
+          "local": "../notebooks/day6_ai_solution_lab/03_gan_monet_studio.ipynb"
+        }
+      },
+      {
+        "id": "rl",
+        "sequence": "04",
+        "shortCode": "RL",
+        "accent": "#35628c",
+        "title": "Connect X 智慧遊戲對手",
+        "client": "教育遊戲開發團隊",
+        "story": "建立會選合法行動的 Connect X 對手，並用多局對戰證明它是否真的優於簡單規則。",
+        "mission": "只修改 BLOCK_OPPONENT（False／True），比較多局勝率、非法行動率與決策時間。",
+        "data": "Connect X",
+        "dataDetail": "Kaggle 互動環境與規則，不是一般靜態資料集；輪轉先用純 Python 輕量模擬器。",
+        "focus": "規則式 policy／合法行動／多局評估",
+        "scopeNote": "本站主線是 Random、Center-first 與 One-step Lookahead 規則式 policy；DQN 僅供選為完整專題後，搭配有來源的 checkpoint 使用。",
+        "changeOptions": [
+          "必改：BLOCK_OPPONENT（False／True）",
+          "保持相同對手、場數與亂數種子",
+          "確認所有行動都來自合法欄位"
+        ],
+        "evidence": [
+          "多局 Win／Draw／Loss Rate",
+          "Illegal Action Rate",
+          "一個攻守衝突的棋盤狀態"
+        ],
+        "cpuFallback": "全站規則式 policy 可直接用 CPU 執行；不在輪轉現場訓練 DQN。",
+        "notebookPath": "notebooks/day6_ai_solution_lab/04_rl_connectx_agent.ipynb",
+        "links": {
+          "kaggle": "https://www.kaggle.com/competitions/connect-x",
+          "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/day6_ai_solution_lab/04_rl_connectx_agent.ipynb",
+          "local": "../notebooks/day6_ai_solution_lab/04_rl_connectx_agent.ipynb"
+        }
+      }
+    ]
+  };
+}());

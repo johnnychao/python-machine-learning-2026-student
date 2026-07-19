@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "checked_on": "2026-07-19",
+ "runtime_policy": "KaggleHub downloads at runtime; this repository does not redistribute dataset files.",
+ "version_policy": "Handles currently resolve latest. Instructor must pin tested /versions/N before the live class.",
+ "sources": [
+  {
+   "station": "cnn",
+   "handle": "samuelcortinhas/cats-and-dogs-image-classification",
+   "url": "https://www.kaggle.com/datasets/samuelcortinhas/cats-and-dogs-image-classification",
+   "canonical_task_url": "https://www.kaggle.com/competitions/dogs-vs-cats/data",
+   "license_as_listed": "CC0: Public Domain",
+   "teaching_scope": "About 1,000 cat/dog images; recursively discover image files and labels."
+  },
+  {
+   "station": "rnn",
+   "handle": "vstepanenko/disaster-tweets",
+   "url": "https://www.kaggle.com/datasets/vstepanenko/disaster-tweets",
+   "canonical_task_url": "https://www.kaggle.com/competitions/nlp-getting-started/data",
+   "license_as_listed": "CC0: Public Domain",
+   "teaching_scope": "English short-text classification; dynamically locate a CSV containing text and target."
+  },
+  {
+   "station": "gan",
+   "handle": "balraj98/monet2photo",
+   "url": "https://www.kaggle.com/datasets/balraj98/monet2photo",
+   "canonical_task_url": "https://www.kaggle.com/competitions/gan-getting-started/data",
+   "license_as_listed": "Other (specified on Kaggle)",
+   "teaching_scope": "1,193 Monet paintings and 7,038 photos; do not redistribute a classroom cache without rechecking terms."
+  },
+  {
+   "station": "rl",
+   "handle": null,
+   "url": "https://www.kaggle.com/competitions/connect-x",
+   "canonical_task_url": "https://github.com/Kaggle/kaggle-environments",
+   "license_as_listed": "Competition/environment terms; not a static dataset",
+   "teaching_scope": "Use a lightweight local 6x7 Connect X simulator, then optionally validate in Kaggle Environments."
+  }
+ ]
+}
