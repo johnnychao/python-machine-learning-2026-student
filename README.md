@@ -10,6 +10,8 @@
 4. 依序執行 notebook，遇到大型資料或深度學習章節時，依講師指示使用 quick mode。
 5. 保存自己的 Colab 副本，作為複習紀錄。
 
+課程後段的 AI 綜合演練請由 [`AI_SOLUTION_PRACTICUM.md`](AI_SOLUTION_PRACTICUM.md) 進入。四個情境都在 Colab 直接載入公開或課程自製素材；Kaggle 只列為題目出處，學員不需要 Kaggle 帳號或 API Token。
+
 ## Repo 定位
 
 - 提供 Colab-ready notebooks、環境檢查、練習模板與課程地圖。

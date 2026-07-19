@@ -6,6 +6,8 @@
 https://github.com/rasbt/python-machine-learning-book-3rd-edition.git
 ```
 
+AI 解決方案綜合演練請從 [`AI_SOLUTION_PRACTICUM.md`](AI_SOLUTION_PRACTICUM.md) 開始。該組 Notebook 的資料會由 Colab 直接載入，Kaggle 連結僅供查閱題目出處，不要求學員登入 Kaggle。
+
 注意：
 - Colab session 重啟後需重新執行 setup cell。
 - 深度學習章節可能需要 GPU runtime。
