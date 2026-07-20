@@ -13,7 +13,7 @@ REPO = Path(__file__).resolve().parents[1]
 NOTEBOOK_DIR = REPO / "notebooks" / "ai_solution_practicum"
 MANIFEST_PATH = REPO / "data" / "ai_solution_practicum" / "datasets.json"
 PRACTICE_DIR = REPO / "practice" / "ai_solution_practicum"
-PUBLIC_PAGE = REPO / "docs" / "index.html"
+PUBLIC_PAGE = REPO / "docs" / "practicum" / "index.html"
 PUBLIC_STYLE = REPO / "docs" / "assets" / "styles.css"
 PUBLIC_APP = REPO / "docs" / "assets" / "app.js"
 PUBLIC_AUDIO = REPO / "docs" / "assets" / "cinematic-audio.js"
@@ -78,6 +78,14 @@ ALLOWED_KAGGLE_PROVENANCE_KEYS = {
 
 def result(check: str, passed: bool, detail: str) -> dict[str, str]:
     return {"check": check, "status": "pass" if passed else "fail", "detail": detail}
+
+
+def repo_relative(path: Path) -> str:
+    """Keep committed validation reports free of workstation-specific paths."""
+    try:
+        return path.resolve().relative_to(REPO.resolve()).as_posix()
+    except ValueError:
+        return path.name
 
 
 def source_text(cell: dict[str, Any]) -> str:
@@ -355,7 +363,7 @@ def validate_manifest() -> list[dict[str, str]]:
 
 def validate_public_page() -> list[dict[str, str]]:
     if not PUBLIC_PAGE.is_file():
-        return [result("public_page:exists", False, str(PUBLIC_PAGE))]
+        return [result("public_page:exists", False, repo_relative(PUBLIC_PAGE))]
 
     html = PUBLIC_PAGE.read_text(encoding="utf-8")
     css = PUBLIC_STYLE.read_text(encoding="utf-8") if PUBLIC_STYLE.is_file() else ""
@@ -363,7 +371,7 @@ def validate_public_page() -> list[dict[str, str]]:
     audio_js = PUBLIC_AUDIO.read_text(encoding="utf-8") if PUBLIC_AUDIO.is_file() else ""
     score_license = PUBLIC_SCORE_LICENSE.read_text(encoding="utf-8") if PUBLIC_SCORE_LICENSE.is_file() else ""
     public_source = "\n".join([html, css, app_js, audio_js])
-    checks = [result("public_page:exists", True, str(PUBLIC_PAGE))]
+    checks = [result("public_page:exists", True, repo_relative(PUBLIC_PAGE))]
     checks.append(
         result(
             "public_page:no_day_marker",
@@ -454,11 +462,11 @@ def main() -> int:
     checks: list[dict[str, str]] = []
 
     for path in REQUIRED_FILES:
-        checks.append(result(f"required_file:{path.relative_to(REPO).as_posix()}", path.is_file(), str(path)))
+        checks.append(result(f"required_file:{repo_relative(path)}", path.is_file(), repo_relative(path)))
 
     for filename in EXPECTED_NOTEBOOKS:
         path = NOTEBOOK_DIR / filename
-        checks.append(result(f"notebook:{filename}:exists", path.is_file(), str(path)))
+        checks.append(result(f"notebook:{filename}:exists", path.is_file(), repo_relative(path)))
         if path.is_file():
             checks.extend(validate_notebook(path))
 
@@ -495,11 +503,11 @@ def main() -> int:
     if failures:
         for failure in failures:
             print("FAIL", failure["check"], "-", failure["detail"])
-        print("Report:", REPORT_PATH)
+        print("Report:", repo_relative(REPORT_PATH))
         return 1
 
     print("PASS - AI solution practicum static validation")
-    print("Report:", REPORT_PATH)
+    print("Report:", repo_relative(REPORT_PATH))
     return 0
 
 

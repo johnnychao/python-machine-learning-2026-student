@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "checked_at_utc": "2026-07-19T20:01:05+00:00",
+  "checked_at_utc": "2026-07-20T02:07:47+00:00",
   "scope": "Static practicum validation; fresh Colab execution and remote URL availability remain separate checks.",
   "summary": {
     "total": 66,
@@ -11,47 +11,47 @@
     {
       "check": "required_file:AI_SOLUTION_PRACTICUM.md",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\AI_SOLUTION_PRACTICUM.md"
+      "detail": "AI_SOLUTION_PRACTICUM.md"
     },
     {
       "check": "required_file:data/ai_solution_practicum/datasets.json",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\data\\ai_solution_practicum\\datasets.json"
+      "detail": "data/ai_solution_practicum/datasets.json"
     },
     {
-      "check": "required_file:docs/index.html",
+      "check": "required_file:docs/practicum/index.html",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\index.html"
+      "detail": "docs/practicum/index.html"
     },
     {
       "check": "required_file:docs/assets/styles.css",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\styles.css"
+      "detail": "docs/assets/styles.css"
     },
     {
       "check": "required_file:docs/assets/app.js",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\app.js"
+      "detail": "docs/assets/app.js"
     },
     {
       "check": "required_file:docs/assets/cinematic-audio.js",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\cinematic-audio.js"
+      "detail": "docs/assets/cinematic-audio.js"
     },
     {
       "check": "required_file:docs/assets/audio/snow-globe-bobjt-cc0-v1.mp3",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\audio\\snow-globe-bobjt-cc0-v1.mp3"
+      "detail": "docs/assets/audio/snow-globe-bobjt-cc0-v1.mp3"
     },
     {
       "check": "required_file:docs/assets/audio/SNOW_GLOBE_LICENSE.txt",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\assets\\audio\\SNOW_GLOBE_LICENSE.txt"
+      "detail": "docs/assets/audio/SNOW_GLOBE_LICENSE.txt"
     },
     {
       "check": "notebook:00_colab_ready.ipynb:exists",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\00_colab_ready.ipynb"
+      "detail": "notebooks/ai_solution_practicum/00_colab_ready.ipynb"
     },
     {
       "check": "notebook:00_colab_ready.ipynb:structure",
@@ -91,7 +91,7 @@
     {
       "check": "notebook:01_cnn_pet_story.ipynb:exists",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\01_cnn_pet_story.ipynb"
+      "detail": "notebooks/ai_solution_practicum/01_cnn_pet_story.ipynb"
     },
     {
       "check": "notebook:01_cnn_pet_story.ipynb:structure",
@@ -131,7 +131,7 @@
     {
       "check": "notebook:02_rnn_message_story.ipynb:exists",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\02_rnn_message_story.ipynb"
+      "detail": "notebooks/ai_solution_practicum/02_rnn_message_story.ipynb"
     },
     {
       "check": "notebook:02_rnn_message_story.ipynb:structure",
@@ -171,7 +171,7 @@
     {
       "check": "notebook:03_style_transfer_story.ipynb:exists",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\03_style_transfer_story.ipynb"
+      "detail": "notebooks/ai_solution_practicum/03_style_transfer_story.ipynb"
     },
     {
       "check": "notebook:03_style_transfer_story.ipynb:structure",
@@ -211,7 +211,7 @@
     {
       "check": "notebook:04_rl_strategy_story.ipynb:exists",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\notebooks\\ai_solution_practicum\\04_rl_strategy_story.ipynb"
+      "detail": "notebooks/ai_solution_practicum/04_rl_strategy_story.ipynb"
     },
     {
       "check": "notebook:04_rl_strategy_story.ipynb:structure",
@@ -296,7 +296,7 @@
     {
       "check": "public_page:exists",
       "status": "pass",
-      "detail": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\github_repos\\python-machine-learning-2026-student\\docs\\index.html"
+      "detail": "docs/practicum/index.html"
     },
     {
       "check": "public_page:no_day_marker",

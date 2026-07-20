@@ -8,6 +8,10 @@ This course package contains Colab-ready notebooks derived from:
 
 The original code repository is licensed under the MIT License. This project keeps attribution and does not include the copyrighted book PDF or extracted full text in public-facing repos.
 
+## Student Handouts
+
+The chapter handouts published under `docs/handouts/` are course-created student editions. They are rebuilt from student-facing Markdown stored in this public repository and do not include the original book PDF, scanned chapters, private teaching workflows, answer keys, or local machine paths. References to the book and original MIT-licensed code are retained for attribution. Any third-party figure without a verified public-use basis must be removed or replaced before release.
+
 ## AI Solution Practicum Sources
 
 The current integrated practicum uses Kaggle links only to acknowledge the original challenge or project context. Its Colab runtime does not use KaggleHub, Kaggle credentials, competition downloads, `kaggle-environments`, or Gradio.

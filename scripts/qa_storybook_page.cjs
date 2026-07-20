@@ -1,9 +1,21 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const baseUrl = process.argv[2] || "http://127.0.0.1:8765";
+const requestedBaseUrl = process.argv[2] || "http://127.0.0.1:8765/";
 const playwrightModule = process.argv[3] || "playwright";
 const { chromium } = require(playwrightModule);
+
+function resolvePracticumUrl(value) {
+  const url = new URL(value);
+  url.hash = "";
+  url.search = "";
+  if (!url.pathname.endsWith("/")) url.pathname += "/";
+  if (!url.pathname.endsWith("/practicum/")) url.pathname += "practicum/";
+  return url.href;
+}
+
+const baseUrl = resolvePracticumUrl(requestedBaseUrl);
+const siteBaseUrl = new URL("../", baseUrl).href;
 
 const repoRoot = path.resolve(__dirname, "..");
 const outputDir = path.join(repoRoot, "output", "playwright");
@@ -49,7 +61,7 @@ async function inspectViewport(browser, label, viewport) {
     if (response.url().includes("snow-globe-bobjt-cc0-v1.mp3")) {
       mediaResponses.push({ status: response.status(), contentType: response.headers()["content-type"] || "", url: response.url() });
     }
-    if (response.url().startsWith(baseUrl) && response.status() >= 400) {
+    if (response.url().startsWith(siteBaseUrl) && response.status() >= 400) {
       badResponses.push(`${response.status()} ${response.url()}`);
     }
   });

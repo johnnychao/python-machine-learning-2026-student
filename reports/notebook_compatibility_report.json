@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-06-09T01:01:15.796150+00:00",
   "pdf": {
-    "path": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\Kaggle深度學習實戰\\01_Python Machine Learning 3rd edition.pdf",
+    "path": "external-local-source-omitted",
     "pages": 769,
     "expected_pages": 769,
     "chapter_count": 18,
@@ -101,7 +101,7 @@
   "official_repo": {
     "action": "updated",
     "commit": "bf62496f44a92a21d23250d5ed13d2d2e617e0e2",
-    "path": "C:\\Users\\enentutor\\Desktop\\AI_Projects\\03_Teaching_教學課程\\數據分析暨機器學習應用班2026\\work\\python_ml_3e_official"
+    "path": "external-source-repository"
   },
   "source_extract": {
     "status": "ready",

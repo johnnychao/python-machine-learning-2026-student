@@ -4,6 +4,7 @@
   document.documentElement.classList.add("js");
 
   const manifest = window.COURSE_MANIFEST;
+  const assetBase = document.body.dataset.assetBase || "";
   const actRoman = ["I", "II", "III", "IV"];
   const actChinese = ["一", "二", "三", "四"];
 
@@ -14,6 +15,11 @@
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
+  }
+
+  function assetUrl(value) {
+    const path = String(value);
+    return /^(?:https?:|data:|\/)/.test(path) ? path : `${assetBase}${path}`;
   }
 
   function storyTemplate(story, index) {
@@ -28,7 +34,7 @@
       <article class="story-card reveal" id="story-${escapeHtml(story.id)}" aria-labelledby="${titleId}" data-sequence="${escapeHtml(story.sequence)}" data-act="ACT ${roman}" style="--story-accent: ${escapeHtml(story.accent)}">
         <figure class="story-figure">
           <div class="story-scene-meta" aria-hidden="true"><span>ACT ${roman}</span><span>SCENE ${escapeHtml(story.sequence)}</span></div>
-          <img src="${escapeHtml(story.image)}" alt="${escapeHtml(story.imageAlt)}" width="960" height="720" loading="lazy">
+          <img src="${escapeHtml(assetUrl(story.image))}" alt="${escapeHtml(story.imageAlt)}" width="960" height="720" loading="lazy">
           <figcaption><span>場景字幕</span>${escapeHtml(story.sceneCaption)}</figcaption>
         </figure>
         <div class="story-copy">
@@ -91,7 +97,7 @@
 
     if (!("IntersectionObserver" in window)) return;
 
-    const navLinks = Array.from(document.querySelectorAll(".main-nav a"));
+    const navLinks = Array.from(document.querySelectorAll('.main-nav a[href^="#"]'));
     const sections = navLinks
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);

@@ -1,6 +1,12 @@
 # AI 解決方案綜合實作
 
-這是一組以 Google Colab 為唯一實作環境的綜合演練。學員從網頁進入情境，再開啟 Notebook，依序完成「理解問題、執行基準方案、修改一個關鍵設定、比較結果、記錄限制」。
+這是一組以 Google Colab 為唯一實作環境的綜合演練。學生從網頁進入情境，再開啟 Notebook，依序完成「理解問題、執行基準方案、修改一個關鍵設定、比較結果、記錄限制」。
+
+學生網頁入口：
+
+https://johnnychao.github.io/python-machine-learning-2026-student/practicum/
+
+本區是五日課程的壓軸跨章節綜合實作。
 
 Kaggle 連結只用來說明專案題目的出處。學生不需要 Kaggle 帳號、API Token 或資料下載權限；實作資料會由 Colab 直接從公開教材來源、固定版本檔案或本課程自製素材載入。
 

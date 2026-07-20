@@ -1,0 +1,207 @@
+{
+  "status": "pass",
+  "checked_at_utc": "2026-07-20T02:07:47+00:00",
+  "scope": "Static validation of the public student course portal, catalog, Colab links, student handouts, PDF text, and repository output boundaries. Browser behavior and fresh Colab execution are separate checks.",
+  "summary": {
+    "total": 39,
+    "passed": 39,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "check": "build_target:student_repo_root",
+      "status": "pass",
+      "detail": "repo=python-machine-learning-2026-student"
+    },
+    {
+      "check": "build_target:all_paths_contained",
+      "status": "pass",
+      "detail": "[\"docs\", \"docs/assets/course-catalog.json\", \"handouts/student\", \"docs/handouts\", \"notebooks/colab_ready\", \"reports/student_course_portal_validation.json\"]"
+    },
+    {
+      "check": "build_target:handout_builder_exists",
+      "status": "pass",
+      "detail": "scripts/build_student_handouts.py"
+    },
+    {
+      "check": "build_target:builder_containment_guard",
+      "status": "pass",
+      "detail": "builder pins the student repo and rejects output outside it"
+    },
+    {
+      "check": "route:index.html",
+      "status": "pass",
+      "detail": "docs/index.html"
+    },
+    {
+      "check": "route:day-1/index.html",
+      "status": "pass",
+      "detail": "docs/day-1/index.html"
+    },
+    {
+      "check": "route:day-2/index.html",
+      "status": "pass",
+      "detail": "docs/day-2/index.html"
+    },
+    {
+      "check": "route:day-3/index.html",
+      "status": "pass",
+      "detail": "docs/day-3/index.html"
+    },
+    {
+      "check": "route:day-4/index.html",
+      "status": "pass",
+      "detail": "docs/day-4/index.html"
+    },
+    {
+      "check": "route:day-5/index.html",
+      "status": "pass",
+      "detail": "docs/day-5/index.html"
+    },
+    {
+      "check": "route:extension/index.html",
+      "status": "pass",
+      "detail": "docs/extension/index.html"
+    },
+    {
+      "check": "route:practicum/index.html",
+      "status": "pass",
+      "detail": "docs/practicum/index.html"
+    },
+    {
+      "check": "catalog:json",
+      "status": "pass",
+      "detail": "docs/assets/course-catalog.json"
+    },
+    {
+      "check": "catalog:schema_keys",
+      "status": "pass",
+      "detail": "keys=['course', 'days', 'environment', 'extension', 'practicum', 'repository', 'schemaVersion']"
+    },
+    {
+      "check": "catalog:public_student_repository",
+      "status": "pass",
+      "detail": "{\"owner\": \"johnnychao\", \"name\": \"python-machine-learning-2026-student\", \"branch\": \"main\", \"visibility\": \"public\", \"url\": \"https://github.com/johnnychao/python-machine-learning-2026-student\"}"
+    },
+    {
+      "check": "catalog:five_days",
+      "status": "pass",
+      "detail": "count=5; routes=['/day-1/', '/day-2/', '/day-3/', '/day-4/', '/day-5/']"
+    },
+    {
+      "check": "catalog:day_fields",
+      "status": "pass",
+      "detail": "all five day records have id/route/label/title/summary"
+    },
+    {
+      "check": "catalog:chapters_01_15_by_day",
+      "status": "pass",
+      "detail": "{\"day-1\": [1, 2, 3], \"day-2\": [4, 5, 6], \"day-3\": [7, 8, 9], \"day-4\": [10, 11, 12], \"day-5\": [13, 14, 15]}"
+    },
+    {
+      "check": "catalog:chapters_16_18_extension",
+      "status": "pass",
+      "detail": "route=/extension/; chapters=[16, 17, 18]"
+    },
+    {
+      "check": "catalog:eighteen_unique_chapters",
+      "status": "pass",
+      "detail": "count=18; numbers=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]"
+    },
+    {
+      "check": "catalog:student_facing_fields",
+      "status": "pass",
+      "detail": "chapter, compute, and notebook fields are populated"
+    },
+    {
+      "check": "catalog:eighteen_handout_links",
+      "status": "pass",
+      "detail": "[\"handouts/ch01.pdf\", \"handouts/ch02.pdf\", \"handouts/ch03.pdf\", \"handouts/ch04.pdf\", \"handouts/ch05.pdf\", \"handouts/ch06.pdf\", \"handouts/ch07.pdf\", \"handouts/ch08.pdf\", \"handouts/ch09.pdf\", \"handouts/ch10.pdf\", \"handouts/ch11.pdf\", \"handouts/ch12.pdf\", \"handouts/ch13.pdf\", \"handouts/ch14.pdf\", \"handouts/ch15.pdf\", \"handouts/ch16.pdf\", \"handouts/ch17.pdf\", \"handouts/ch18.pdf\"]"
+    },
+    {
+      "check": "catalog:twenty_six_notebook_paths",
+      "status": "pass",
+      "detail": "count=26; unique=26"
+    },
+    {
+      "check": "catalog:twenty_six_public_colab_links",
+      "status": "pass",
+      "detail": "count=26; unique=26"
+    },
+    {
+      "check": "catalog:no_day_6",
+      "status": "pass",
+      "detail": "catalog contains no Day 6 marker"
+    },
+    {
+      "check": "catalog:no_private_or_teacher_markers",
+      "status": "pass",
+      "detail": "no prohibited marker"
+    },
+    {
+      "check": "notebooks:twenty_six_files",
+      "status": "pass",
+      "detail": "count=26; missing=[]; extra=[]"
+    },
+    {
+      "check": "notebooks:valid_nbformat4",
+      "status": "pass",
+      "detail": "valid=26"
+    },
+    {
+      "check": "public_source:scanned_files",
+      "status": "pass",
+      "detail": "files=14 (public HTML/JSON/JS)"
+    },
+    {
+      "check": "public_source:no_private_or_teacher_markers",
+      "status": "pass",
+      "detail": "no prohibited marker"
+    },
+    {
+      "check": "public_source:no_day_6",
+      "status": "pass",
+      "detail": "no Day 6 marker"
+    },
+    {
+      "check": "public_docs:no_private_repo_workflow_or_local_path",
+      "status": "pass",
+      "detail": "README, course map, and student Markdown contain no private boundary leak"
+    },
+    {
+      "check": "submission_text:no_local_or_private_paths",
+      "status": "pass",
+      "detail": "scanned=57; no user profile path, local file URL, or private repo slug"
+    },
+    {
+      "check": "handouts:eighteen_student_sources",
+      "status": "pass",
+      "detail": "count=18"
+    },
+    {
+      "check": "handouts:eighteen_public_pdfs",
+      "status": "pass",
+      "detail": "count=18"
+    },
+    {
+      "check": "handouts:pdf_header_and_nonzero",
+      "status": "pass",
+      "detail": "18 PDFs have a PDF header and non-trivial size"
+    },
+    {
+      "check": "handouts:pdf_text_extractor",
+      "status": "pass",
+      "detail": "pypdf"
+    },
+    {
+      "check": "handouts:pdf_text_extractable",
+      "status": "pass",
+      "detail": "18 PDFs contain extractable text"
+    },
+    {
+      "check": "handouts:pdf_no_private_teacher_or_day6_markers",
+      "status": "pass",
+      "detail": "extracted PDF text contains no prohibited marker"
+    }
+  ]
+}

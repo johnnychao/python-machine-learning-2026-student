@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-07-20T02:07:44.598584+00:00",
+  "mode": "build",
+  "repo_guard": {
+    "repo_root_name": "python-machine-learning-2026-student",
+    "fixed_source_dir": "handouts/student",
+    "fixed_pdf_dir": "docs/handouts",
+    "output_containment": "PASS"
+  },
+  "counts": {
+    "chapters": 18,
+    "markdown": 18,
+    "pdf": 18
+  },
+  "scan": {
+    "banned_pattern_groups": [
+      "teacher_terms",
+      "answer_markers",
+      "internal_markers",
+      "private_repo",
+      "local_uri",
+      "windows_path",
+      "embedded_data",
+      "student_voice",
+      "classroom_address",
+      "inflated_tone",
+      "tone_audit",
+      "markdown_artifact",
+      "hidden_format",
+      "unsupported_glyph"
+    ],
+    "markdown_findings": 0,
+    "pdf_text_findings": 0
+  },
+  "taiwan_localization": {
+    "profile": "speak-human-tw",
+    "prose_findings": 0,
+    "protected_code_or_api_exceptions": {}
+  },
+  "student_tone_cleanup": {
+    "profile": "speak-human-tw-round-3",
+    "source_rewrites": 0,
+    "by_chapter": {},
+    "remaining_findings": 0
+  },
+  "markdown_format_cleanup": {
+    "source_rewrites": 0,
+    "by_chapter": {},
+    "remaining_findings": 0
+  },
+  "font_file": "NotoSansTC-VF.ttf",
+  "chapters": [
+    {
+      "chapter": 1,
+      "markdown": "handouts/student/ch01.md",
+      "pdf": "docs/handouts/ch01.pdf",
+      "pages": 4,
+      "extracted_chars": 3729,
+      "markdown_sha256": "d51d3d2ff9e3e32a5f073beb032862e3d82a17705399234da508c2522ca46ca5",
+      "pdf_sha256": "aca8a772b24d4c1b083f37395a14aba34248b75119d665eb38878dbb561029ef"
+    },
+    {
+      "chapter": 2,
+      "markdown": "handouts/student/ch02.md",
+      "pdf": "docs/handouts/ch02.pdf",
+      "pages": 4,
+      "extracted_chars": 3796,
+      "markdown_sha256": "cb25ad81ea1a8efc7762c900f9046ac7be86704d570763b77daa74aaccdeb35f",
+      "pdf_sha256": "1d47daaef86d8188c3247ddc8862d954214e955d2f7f72db5ac5479e3930a676"
+    },
+    {
+      "chapter": 3,
+      "markdown": "handouts/student/ch03.md",
+      "pdf": "docs/handouts/ch03.pdf",
+      "pages": 5,
+      "extracted_chars": 5542,
+      "markdown_sha256": "8de7e2acab1130b8118b3ca8a6e2806aba7daff75b630cf3544a315ffc37f9fa",
+      "pdf_sha256": "fe1d9d438bc23ade4bd14f57cc3ca6ed17081ab6587ec73637da53b24dea1f5f"
+    },
+    {
+      "chapter": 4,
+      "markdown": "handouts/student/ch04.md",
+      "pdf": "docs/handouts/ch04.pdf",
+      "pages": 4,
+      "extracted_chars": 4241,
+      "markdown_sha256": "6a8f624e07cd32f43c5cb0c35e1872bb3ebe9047e2118bcc012c310d7f813157",
+      "pdf_sha256": "8b462d9614da5158297acd30133a0b60f711c81fdee899127f472add2490e90a"
+    },
+    {
+      "chapter": 5,
+      "markdown": "handouts/student/ch05.md",
+      "pdf": "docs/handouts/ch05.pdf",
+      "pages": 4,
+      "extracted_chars": 4319,
+      "markdown_sha256": "7d3d354347ce8fe380f85594905a7379b82df2cd9a3b6a6ca39383767bb9c015",
+      "pdf_sha256": "e04e16b57b8a2ac5445c2541d66e18484008554689485d2c2a0cc246699322f4"
+    },
+    {
+      "chapter": 6,
+      "markdown": "handouts/student/ch06.md",
+      "pdf": "docs/handouts/ch06.pdf",
+      "pages": 4,
+      "extracted_chars": 5064,
+      "markdown_sha256": "ff24082b51eb3edf190672eefe5980b51cb9cc0438033cbb6f20f764fe7a4722",
+      "pdf_sha256": "fae2ef6f674803052d0349f8f8b223f3a575f1abac5e5186adb8ba13ea435b38"
+    },
+    {
+      "chapter": 7,
+      "markdown": "handouts/student/ch07.md",
+      "pdf": "docs/handouts/ch07.pdf",
+      "pages": 4,
+      "extracted_chars": 4524,
+      "markdown_sha256": "e11af6ce196f0cd38d05138d8f675df96a99ca83f4341404975c74548c55b60d",
+      "pdf_sha256": "6ae92926e8ac54def5bc0260d9fdf63343eac6a606537f04ff6600240b410aa4"
+    },
+    {
+      "chapter": 8,
+      "markdown": "handouts/student/ch08.md",
+      "pdf": "docs/handouts/ch08.pdf",
+      "pages": 3,
+      "extracted_chars": 3947,
+      "markdown_sha256": "d8d2ba9ad8df24317d037dcfbb8229d466e8a3753115da94086ab50eba7cd58f",
+      "pdf_sha256": "d32b571a1df873150626021636566a5e7fd19cba33dc1353440583b89e481e76"
+    },
+    {
+      "chapter": 9,
+      "markdown": "handouts/student/ch09.md",
+      "pdf": "docs/handouts/ch09.pdf",
+      "pages": 4,
+      "extracted_chars": 5072,
+      "markdown_sha256": "c7608a0eb63c5f311f165a26fe14705eb02ced5739c39f3fcbb21df66cc951bb",
+      "pdf_sha256": "796b20f5fc2a3288213e2ceab961dee0b7dac76661585c3953b818aa954af405"
+    },
+    {
+      "chapter": 10,
+      "markdown": "handouts/student/ch10.md",
+      "pdf": "docs/handouts/ch10.pdf",
+      "pages": 4,
+      "extracted_chars": 4049,
+      "markdown_sha256": "fb5baeeab465b6a0c0c4ffbbc874df5f75dca0e634d0428fe7ab53a85d1914ca",
+      "pdf_sha256": "1791cf596e85dfd288da6a70d496cecb84425eef743819ef03ffd9dd63ac12cb"
+    },
+    {
+      "chapter": 11,
+      "markdown": "handouts/student/ch11.md",
+      "pdf": "docs/handouts/ch11.pdf",
+      "pages": 4,
+      "extracted_chars": 3931,
+      "markdown_sha256": "daf973a8ad2d2f11739882c443bdbe99f75e6562a26b804eb65ba519b251210b",
+      "pdf_sha256": "f1f1e58d6ea2bfcee5782d4c67f89b646eceaa8770a46054152de0930e7b7c90"
+    },
+    {
+      "chapter": 12,
+      "markdown": "handouts/student/ch12.md",
+      "pdf": "docs/handouts/ch12.pdf",
+      "pages": 4,
+      "extracted_chars": 3629,
+      "markdown_sha256": "ce5814f6da443079c28520e80cae7bdd1192f9a9936057b52e062d1efe106aca",
+      "pdf_sha256": "66420a955c95fdcb1212a3e4cd521ddc896f6ed4cf7442546680c73ce9d9b44e"
+    },
+    {
+      "chapter": 13,
+      "markdown": "handouts/student/ch13.md",
+      "pdf": "docs/handouts/ch13.pdf",
+      "pages": 5,
+      "extracted_chars": 4528,
+      "markdown_sha256": "1534fa43169eb881508600883bd87aaacbcbeedc1a6f525ff070906152a12910",
+      "pdf_sha256": "29508d93e86d4be3e53571e91dfe73bcac9496f88a62488d0a1b9325c38c83aa"
+    },
+    {
+      "chapter": 14,
+      "markdown": "handouts/student/ch14.md",
+      "pdf": "docs/handouts/ch14.pdf",
+      "pages": 4,
+      "extracted_chars": 4512,
+      "markdown_sha256": "4a06ed8d91cc07090cadf2531424edb92f0760a103ae18ddf583a227643bc2c1",
+      "pdf_sha256": "4a51c5a047b25401aad3fee58fb405b44a12771868b408d212118ed9f77ab93f"
+    },
+    {
+      "chapter": 15,
+      "markdown": "handouts/student/ch15.md",
+      "pdf": "docs/handouts/ch15.pdf",
+      "pages": 4,
+      "extracted_chars": 4238,
+      "markdown_sha256": "36081ece8594b038a479595300b6128ffd2646caab148071341bce5b1255d837",
+      "pdf_sha256": "a0537748fbd2d51a1eb00d999c5136d765a1aca5c01ad0ab57ceddacc1348fbc"
+    },
+    {
+      "chapter": 16,
+      "markdown": "handouts/student/ch16.md",
+      "pdf": "docs/handouts/ch16.pdf",
+      "pages": 5,
+      "extracted_chars": 5063,
+      "markdown_sha256": "0b53052288cc484f82e9da77c0fe1caec58169ce810326962927591130a33b5c",
+      "pdf_sha256": "6dcd0cda7d4bfddf8bcaed8d2f38befe6ed2657a597be7ecf17c8cd12b17a7b8"
+    },
+    {
+      "chapter": 17,
+      "markdown": "handouts/student/ch17.md",
+      "pdf": "docs/handouts/ch17.pdf",
+      "pages": 4,
+      "extracted_chars": 4374,
+      "markdown_sha256": "5344e8d1f69b6e53569e2e78d8358e60b6808c8a7ab40cd32f593ee76dd96e9f",
+      "pdf_sha256": "2caf04d8d01e257d955f82f6baeb3f218a00c150053d9f029664614f690ca52d"
+    },
+    {
+      "chapter": 18,
+      "markdown": "handouts/student/ch18.md",
+      "pdf": "docs/handouts/ch18.pdf",
+      "pages": 6,
+      "extracted_chars": 5553,
+      "markdown_sha256": "156f04714002145e9546d648f2a5a086fe6c5946298927d6ec6b4f7e534776b8",
+      "pdf_sha256": "df129e78de58ff38d42a30214ba867df38bbedf53755a6e42bdde6fc5b052211"
+    }
+  ]
+}

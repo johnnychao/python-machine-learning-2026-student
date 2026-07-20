@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0.0",
+  "course": {
+    "title": "數據分析暨機器學習應用班 2026",
+    "shortTitle": "Python Machine Learning 2026",
+    "audience": "學生公開版",
+    "schedule": "五日課程",
+    "chapterCount": 18,
+    "notebookCount": 26
+  },
+  "repository": {
+    "owner": "johnnychao",
+    "name": "python-machine-learning-2026-student",
+    "branch": "main",
+    "visibility": "public",
+    "url": "https://github.com/johnnychao/python-machine-learning-2026-student"
+  },
+  "environment": {
+    "platform": "Google Colab",
+    "kaggleLoginRequired": false,
+    "dataPolicy": "教材所需資料會在 Colab 直接取得；Kaggle 只標示題目出處，學生不需要 Kaggle 帳號或 API Token。",
+    "saveReminder": "進入 Colab 後，請先選擇「檔案 → 在雲端硬碟中儲存副本」。"
+  },
+  "days": [
+    {
+      "id": "day-1",
+      "route": "day-1/",
+      "label": "DAY 01",
+      "reel": "REEL A",
+      "title": "讓模型開始學習",
+      "summary": "從問題設定、線性分類器到 scikit-learn 模型，建立第一條可執行的機器學習流程。",
+      "accent": "#F39C12",
+      "chapters": [
+        {
+          "id": "ch01",
+          "number": 1,
+          "title": "從資料中學習的機器",
+          "outcome": "分辨監督式、非監督式與強化學習，並說出一個模型從資料到評估的完整流程。",
+          "compute": { "runtime": "CPU", "duration": "15–20 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch01.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch01_ch01_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch01_ch01_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch02",
+          "number": 2,
+          "title": "簡單分類演算法",
+          "outcome": "用 Perceptron 與 Adaline 理解成本函數、梯度下降、學習率及特徵縮放。",
+          "compute": { "runtime": "CPU", "duration": "20–30 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch02.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch02_ch02_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch02_ch02_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch03",
+          "number": 3,
+          "title": "scikit-learn 分類器巡禮",
+          "outcome": "以一致的 API 建立多種分類基準，並解讀參數如何改變決策邊界。",
+          "compute": { "runtime": "CPU", "duration": "25–35 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch03.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch03_ch03_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch03_ch03_colab.ipynb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-2",
+      "route": "day-2/",
+      "label": "DAY 02",
+      "reel": "REEL B",
+      "title": "整理資料，驗證模型",
+      "summary": "處理資料品質、降低維度，再用交叉驗證與合適指標判斷模型是否可靠。",
+      "accent": "#55A7A0",
+      "chapters": [
+        {
+          "id": "ch04",
+          "number": 4,
+          "title": "資料前處理",
+          "outcome": "處理缺失值、類別變數與尺度，並辨識切分資料時常見的資料洩漏。",
+          "compute": { "runtime": "CPU", "duration": "20–30 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch04.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch04_ch04_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch04_ch04_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch05",
+          "number": 5,
+          "title": "降維方法",
+          "outcome": "比較 PCA、LDA 與 kernel PCA，並從視覺化與模型表現判斷降維效果。",
+          "compute": { "runtime": "CPU", "duration": "20–30 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch05.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch05_ch05_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch05_ch05_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch06",
+          "number": 6,
+          "title": "模型評估與超參數調校",
+          "outcome": "使用 Pipeline、學習曲線、交叉驗證與搜尋方法，依任務選擇評估指標。",
+          "compute": { "runtime": "CPU", "duration": "25–40 分鐘", "mode": "快速模式可選" },
+          "handout": "handouts/ch06.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch06_ch06_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch06_ch06_colab.ipynb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-3",
+      "route": "day-3/",
+      "label": "DAY 03",
+      "reel": "REEL C",
+      "title": "把模型帶進真實任務",
+      "summary": "從集成與文字分析前進到 Web 推論流程，思考模型如何成為可使用的工具。",
+      "accent": "#E06B5C",
+      "chapters": [
+        {
+          "id": "ch07",
+          "number": 7,
+          "title": "集成學習",
+          "outcome": "理解 voting、bagging 與 boosting，並驗證組合多個模型是否真的改善結果。",
+          "compute": { "runtime": "CPU", "duration": "20–30 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch07.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch07_ch07_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch07_ch07_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch08",
+          "number": 8,
+          "title": "文字情緒分析",
+          "outcome": "完成文字清理、TF-IDF 與分類基準，理解大資料的漸進式學習流程。",
+          "compute": { "runtime": "CPU", "duration": "25–40 分鐘", "mode": "快速模式建議" },
+          "handout": "handouts/ch08.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch08_ch08_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch08_ch08_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch09",
+          "number": 9,
+          "title": "把機器學習模型嵌入 Web 應用",
+          "outcome": "串接序列化模型、SQLite 與 Flask，分辨課堂展示、原型及正式部署。",
+          "compute": { "runtime": "CPU", "duration": "20–30 分鐘", "mode": "Colab 示範" },
+          "handout": "handouts/ch09.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch09_ch09_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch09_ch09_colab.ipynb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-4",
+      "route": "day-4/",
+      "label": "DAY 04",
+      "reel": "REEL D",
+      "title": "看懂結構與深層表示",
+      "summary": "由回歸與分群讀懂資料結構，再親手拆解神經網路的前向與反向傳播。",
+      "accent": "#9B87C4",
+      "chapters": [
+        {
+          "id": "ch10",
+          "number": 10,
+          "title": "回歸分析",
+          "outcome": "比較線性、穩健、正則化與多項式回歸，並以殘差與指標診斷模型。",
+          "compute": { "runtime": "CPU", "duration": "25–35 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch10.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch10_ch10_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch10_ch10_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch11",
+          "number": 11,
+          "title": "分群分析",
+          "outcome": "比較 K-means、階層分群與 DBSCAN，從輪廓與指標解讀分群結果。",
+          "compute": { "runtime": "CPU", "duration": "20–30 分鐘", "mode": "標準模式" },
+          "handout": "handouts/ch11.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch11_ch11_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch11_ch11_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch12",
+          "number": 12,
+          "title": "從零實作多層神經網路",
+          "outcome": "追蹤 MLP 的 forward、backpropagation、batch、epoch、loss 與 accuracy。",
+          "compute": { "runtime": "CPU", "duration": "25–40 分鐘", "mode": "快速模式建議" },
+          "handout": "handouts/ch12.pdf",
+          "notebooks": [
+            { "label": "完整實作", "path": "notebooks/colab_ready/ch12_ch12_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch12_ch12_colab.ipynb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-5",
+      "route": "day-5/",
+      "label": "DAY 05",
+      "reel": "REEL E",
+      "title": "打造深度學習作品",
+      "summary": "運用 TensorFlow 與 CNN 完成影像任務，最後走進四幕故事的 AI 解決方案綜合實作。",
+      "accent": "#E3B94F",
+      "chapters": [
+        {
+          "id": "ch13",
+          "number": 13,
+          "title": "使用 TensorFlow 平行化神經網路訓練",
+          "outcome": "完成 tensor、資料管線與 Keras 模型生命週期，讓輸出層對應正確任務。",
+          "compute": { "runtime": "CPU／GPU 可選", "duration": "3 段・各 15–25 分鐘", "mode": "依序完成" },
+          "handout": "handouts/ch13.pdf",
+          "notebooks": [
+            { "label": "Part 1・Tensor 與資料管線", "path": "notebooks/colab_ready/ch13_ch13_part1_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch13_ch13_part1_colab.ipynb" },
+            { "label": "Part 2・Keras 模型流程", "path": "notebooks/colab_ready/ch13_ch13_part2_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch13_ch13_part2_colab.ipynb" },
+            { "label": "Part 3・儲存與載入", "path": "notebooks/colab_ready/ch13_ch13_part3_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch13_ch13_part3_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch14",
+          "number": 14,
+          "title": "深入 TensorFlow 機制",
+          "outcome": "使用 tf.function、GradientTape、自訂 layer 與 functional API 理解框架內部機制。",
+          "compute": { "runtime": "CPU／GPU 可選", "duration": "3 段・各 15–25 分鐘", "mode": "依序完成" },
+          "handout": "handouts/ch14.pdf",
+          "notebooks": [
+            { "label": "Part 1・Eager 與運算圖", "path": "notebooks/colab_ready/ch14_ch14_part1_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch14_ch14_part1_colab.ipynb" },
+            { "label": "Part 2・梯度與自訂元件", "path": "notebooks/colab_ready/ch14_ch14_part2_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch14_ch14_part2_colab.ipynb" },
+            { "label": "Part 3・Functional API", "path": "notebooks/colab_ready/ch14_ch14_part3_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch14_ch14_part3_colab.ipynb" }
+          ]
+        },
+        {
+          "id": "ch15",
+          "number": 15,
+          "title": "使用 CNN 進行影像分類",
+          "outcome": "建立 CNN、加入資料增強，並處理影像資料量、訓練時間與硬體限制。",
+          "compute": { "runtime": "GPU 建議", "duration": "2 段＋資料準備", "mode": "快速模式建議" },
+          "handout": "handouts/ch15.pdf",
+          "notebooks": [
+            { "label": "Part 1・卷積與基礎架構", "path": "notebooks/colab_ready/ch15_ch15_part1_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch15_ch15_part1_colab.ipynb" },
+            { "label": "Part 2・影像分類實作", "path": "notebooks/colab_ready/ch15_ch15_part2_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch15_ch15_part2_colab.ipynb" },
+            { "label": "資料準備・CelebA", "path": "notebooks/colab_ready/ch15_downloading-celeba_downloading-celeba_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch15_downloading-celeba_downloading-celeba_colab.ipynb" }
+          ]
+        }
+      ]
+    }
+  ],
+  "extension": {
+    "id": "extension",
+    "route": "extension/",
+    "label": "POST-CREDITS",
+    "reel": "BONUS REEL",
+    "title": "課後延伸：序列、生成與決策",
+    "summary": "Ch16–18 是自主探索區，不增加課程天數；依興趣選擇，不必一次全部完成。",
+    "accent": "#78A9C4",
+    "chapters": [
+      {
+        "id": "ch16",
+        "number": 16,
+        "title": "使用 RNN 建模序列資料",
+        "outcome": "理解 embedding、RNN／LSTM、長距依賴與 self-attention 的入門直覺。",
+        "compute": { "runtime": "GPU 建議", "duration": "2 段・各 20–35 分鐘", "mode": "快速模式建議" },
+        "handout": "handouts/ch16.pdf",
+        "notebooks": [
+          { "label": "Part 1・序列與情緒分類", "path": "notebooks/colab_ready/ch16_ch16_part1_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch16_ch16_part1_colab.ipynb" },
+          { "label": "Part 2・語言模型與注意力", "path": "notebooks/colab_ready/ch16_ch16_part2_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch16_ch16_part2_colab.ipynb" }
+        ]
+      },
+      {
+        "id": "ch17",
+        "number": 17,
+        "title": "使用 GAN 生成新資料",
+        "outcome": "追蹤 generator 與 discriminator 的對抗訓練，辨識 mode collapse 與訓練不穩定。",
+        "compute": { "runtime": "GPU 建議", "duration": "2 段・各 25–40 分鐘", "mode": "快速模式建議" },
+        "handout": "handouts/ch17.pdf",
+        "notebooks": [
+          { "label": "Part 1・GAN 基礎", "path": "notebooks/colab_ready/ch17_ch17_part1_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch17_ch17_part1_colab.ipynb" },
+          { "label": "Part 2・DCGAN 與 WGAN-GP", "path": "notebooks/colab_ready/ch17_ch17_part2_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch17_ch17_part2_colab.ipynb" }
+        ]
+      },
+      {
+        "id": "ch18",
+        "number": 18,
+        "title": "強化學習與複雜環境決策",
+        "outcome": "連結 MDP、Bellman equation、Monte Carlo、TD、Q-learning 與 DQN。",
+        "compute": { "runtime": "CPU", "duration": "25–40 分鐘", "mode": "快速模式建議" },
+        "handout": "handouts/ch18.pdf",
+        "notebooks": [
+          { "label": "完整實作", "path": "notebooks/colab_ready/ch18_ch18_colab.ipynb", "colab": "https://colab.research.google.com/github/johnnychao/python-machine-learning-2026-student/blob/main/notebooks/colab_ready/ch18_ch18_colab.ipynb" }
+        ]
+      }
+    ]
+  },
+  "practicum": {
+    "route": "practicum/",
+    "label": "FINAL ACT",
+    "title": "AI 解決方案綜合實作",
+    "summary": "先體驗四個故事情境，再任選一案完成 Baseline、單一變因比較、失敗案例與人工介入說明。"
+  }
+}
