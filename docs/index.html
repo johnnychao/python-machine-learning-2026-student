@@ -4,128 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07111C">
-  <meta name="description" content="恩恩統計家教五日課程的 AI 解決方案綜合實作入口。四個故事情境，全程在 Google Colab 完成，不需要 Kaggle 帳號。">
-  <title>五日課程・AI 解決方案綜合實作｜恩恩統計家教</title>
+  <meta name="description" content="恩恩統計家教數據分析暨機器學習應用班 2026 學生公開入口：五日課程、18 章講義、26 份 Colab 與 AI 解決方案綜合實作。">
+  <title>五日課程學生入口｜恩恩統計家教</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%232C3E50'/%3E%3Ccircle cx='32' cy='31' r='19' fill='%23F39C12'/%3E%3Cpath d='M21 34c4 6 18 6 22 0' fill='none' stroke='%232C3E50' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='25' cy='27' r='2.5' fill='%232C3E50'/%3E%3Ccircle cx='39' cy='27' r='2.5' fill='%232C3E50'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/styles.css">
-  <script defer src="assets/course-manifest.js"></script>
-  <script defer src="assets/app.js"></script>
-  <script defer src="assets/cinematic-audio.js"></script>
+  <link rel="stylesheet" href="assets/course-portal.css">
+  <script defer src="assets/course-portal.js"></script>
 </head>
-<body class="cinematic-site" data-sound="off">
-  <a class="skip-link" href="#main-content">跳到主要內容</a>
-  <div class="cinema-atmosphere" aria-hidden="true">
-    <span class="light-orb light-orb--one"></span>
-    <span class="light-orb light-orb--two"></span>
-    <span class="film-grain"></span>
-    <span class="cinema-vignette"></span>
-  </div>
-  <div class="film-progress" aria-hidden="true"><span id="film-progress-bar"></span></div>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="恩恩統計家教，回到頁首">
-      <img src="assets/brand/enen-teacher.webp" alt="" width="54" height="54">
-      <span><strong>恩恩統計家教</strong><small>AI PRACTICUM PICTURES</small></span>
+<body data-page="home" data-site-root="" data-catalog-url="assets/course-catalog.json">
+  <a class="skip-link" href="#portal-content">跳到主要內容</a>
+  <header class="portal-header">
+    <a class="portal-brand" href="./" aria-label="恩恩統計家教五日課程首頁">
+      <img src="assets/brand/enen-teacher.webp" alt="" width="52" height="52">
+      <span><strong>恩恩統計家教</strong><small>STUDENT SCREENING ROOM</small></span>
     </a>
-    <div class="header-controls">
-      <nav class="main-nav" aria-label="主要導覽">
-        <a href="#ready">場記</a><a href="#story-path">四幕劇情</a><a href="#final-choice">最終幕</a>
-      </nav>
-      <button class="sound-toggle" id="sound-toggle" type="button" data-sound-toggle aria-pressed="false" aria-describedby="music-help">
-        <span class="sound-icon" aria-hidden="true">♪</span>
-        <span class="sound-label">配樂：關閉</span>
-      </button>
-    </div>
-    <span class="visually-hidden" id="music-help">電影配樂〈Snow Globe〉預設關閉；按下按鈕後才會載入播放。</span>
-    <span class="visually-hidden" id="sound-status" role="status" aria-live="polite"></span>
+    <nav class="portal-nav" aria-label="學生課程導覽">
+      <a href="#five-days">五日課程</a>
+      <a href="day-5/">Day 5</a>
+      <a href="extension/">課後延伸</a>
+      <a href="practicum/">綜合實作</a>
+    </nav>
   </header>
-
-  <main id="main-content">
-    <section class="hero scene scene--opening" aria-labelledby="page-title" data-scene="序幕">
-      <div class="hero-backdrop" aria-hidden="true"></div>
-      <div class="hero-copy reveal">
-        <p class="studio-mark"><span>ENEN STATISTICS</span> PRESENTS</p>
-        <p class="eyebrow">五日課程・AI 解決方案綜合實作</p>
-        <h1 id="page-title">這一次，<br><em>你是解決問題的人。</em></h1>
-        <p class="hero-lede" id="course-subtitle">四個小故事先體驗，再選一案完整實作。今天不比誰跑得快，而是練習看懂資料、做出選擇，並說明證據。</p>
-        <div class="hero-actions">
-          <a class="button button--primary" href="#story-path">進入四幕實作</a>
-          <button class="button button--sound" type="button" data-sound-toggle aria-pressed="false" aria-describedby="music-help">
-            <span class="sound-icon" aria-hidden="true">♪</span><span class="sound-label">播放電影配樂</span>
-          </button>
-          <a class="button button--quiet" id="repo-link" href="https://github.com/johnnychao/python-machine-learning-2026-student" target="_blank" rel="noopener noreferrer">查看教材原始碼 <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="promise" aria-label="實作環境說明">
-          <span>只用 Google Colab</span><span>資料會直接載入</span><span>無須 Kaggle 帳號</span>
-        </div>
-      </div>
-      <figure class="hero-visual reveal">
-        <div class="frame-label" aria-hidden="true"><span>OPENING SCENE</span><span>00:00:00</span></div>
-        <img src="assets/illustrations/cover-ai-story-lab.webp" alt="恩恩老師帶著學生走進四個 AI 任務世界的故事書插圖" width="1200" height="900">
-        <figcaption>
-          <img src="assets/brand/teacher-cheer.webp" alt="" width="88" height="88">
-          <p><span>導演提示</span><strong>恩恩老師說：</strong>先不用擔心模型名稱。請先問：「這份資料，可以幫誰做什麼決定？」</p>
-        </figcaption>
-      </figure>
-      <a class="scroll-cue" href="#ready"><span>向下進入場記</span><i aria-hidden="true"></i></a>
-    </section>
-
-    <section class="ready-section scene reveal" id="ready" aria-labelledby="ready-title" data-scene="場記">
-      <div class="section-heading">
-        <p class="eyebrow">PRE-PRODUCTION・開拍前</p>
-        <h2 id="ready-title">先打開 Colab，完成你的場記板</h2>
-        <p>教材已把資料下載步驟寫進 Notebook。你只要有 Google 帳號，就能依序執行；Kaggle 連結只用來標示題目來源。</p>
-      </div>
-      <div class="ready-card">
-        <div class="clapper-stripe" aria-hidden="true"></div>
-        <img src="assets/brand/teacher-check.webp" alt="恩恩老師拿著檢查表" width="190" height="190">
-        <ol>
-          <li><strong>開啟 Colab</strong><span>先執行環境檢查，確認程式可以正常運作。</span></li>
-          <li><strong>另存副本</strong><span>在 Colab 選擇「檔案 → 在雲端硬碟中儲存副本」。</span></li>
-          <li><strong>從頭執行</strong><span>看到錯誤先讀訊息，再回到上一格檢查，不用急。</span></li>
-        </ol>
-        <div class="ready-actions">
-          <a class="button button--primary" id="preflight-colab" href="#" target="_blank" rel="noopener noreferrer">開啟 Colab 環境檢查 <span aria-hidden="true">↗</span></a>
-          <a class="text-link" id="preflight-local" href="#" download>下載環境檢查 Notebook</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="story-section scene" id="story-path" aria-labelledby="story-title" data-scene="正片">
-      <div class="section-heading section-heading--center reveal">
-        <p class="eyebrow">MAIN FEATURE・四幕劇情</p>
-        <h2 id="story-title">每一幕，都從一個人的難題開始</h2>
-        <p>四幕可以獨立進入，不需要照順序。每一幕都從真實情境開始：先跑通範例，再只改一個設定，觀察結果怎麼變。</p>
-      </div>
-      <div class="story-list" id="story-list"></div>
-    </section>
-
-    <section class="final-section scene scene--finale reveal" id="final-choice" aria-labelledby="final-title" data-scene="最終幕">
-      <div class="final-art" aria-hidden="true"><img src="assets/brand/teacher-magnify.webp" alt="" width="260" height="260"></div>
-      <div>
-        <p class="eyebrow">FINAL ACT・收束證據</p>
-        <h2 id="final-title">選一幕，把結局做完整</h2>
-        <p>四個故事走過一輪後，選擇最想深入的一案。保留原本的 Baseline，只改一個變因，比較前後結果，再用一張圖和一句話說明你的判斷。</p>
-        <ul class="evidence-ribbon" aria-label="完整實作的四項證據">
-          <li><span>1</span>問題與使用者</li><li><span>2</span>Baseline 結果</li><li><span>3</span>只改一個變因</li><li><span>4</span>證據與限制</li>
-        </ul>
-        <a class="button button--primary" href="#story-path">回看四幕，選擇主線</a>
-      </div>
-    </section>
-
-    <aside class="teacher-note reveal" aria-label="恩恩老師提醒">
-      <img src="assets/brand/enen-teacher.webp" alt="恩恩老師" width="120" height="120">
-      <p><span>POST-CREDITS SCENE・片尾彩蛋</span><strong>卡住也算是實驗的一部分。</strong>把錯誤訊息、你改過的設定和結果留下來，這些都是很有用的證據。</p>
-    </aside>
+  <main class="portal-main" id="portal-content" data-testid="portal-page" aria-busy="true">
+    <div class="portal-loading" role="status"><span>正在打開學生課程大廳…</span></div>
   </main>
-
-  <audio id="cinematic-score" preload="none" loop hidden>
-    <source src="assets/audio/snow-globe-bobjt-cc0-v1.mp3" type="audio/mpeg">
-  </audio>
-
-  <footer class="site-footer">
-    <div><strong>恩恩統計家教</strong><p>ENEN STATISTICS・AI PRACTICUM PICTURES</p></div>
-    <p>本頁只提供教材入口，不會上傳或保存你的作業。<br>配樂：<a href="https://opengameart.org/content/snow-globe" target="_blank" rel="noopener noreferrer">〈Snow Globe〉</a>・Bobjt・<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>；預設關閉。<br>© <span id="current-year">2026</span> 恩恩統計家教</p>
+  <footer class="portal-footer">
+    <div><strong>恩恩統計家教</strong><p>PYTHON MACHINE LEARNING 2026・學生公開版</p></div>
+    <p>本網站不會上傳或保存你的作業。<br>只用 Google Colab；Kaggle 無須登入。<br>© <span id="current-year">2026</span> 恩恩統計家教</p>
   </footer>
-  <noscript><div class="noscript-note">這個教材入口需要 JavaScript 才能顯示四個故事。請啟用 JavaScript 後重新整理，或直接從 GitHub 開啟 Notebook。</div></noscript>
+  <noscript><div class="portal-error"><h1>請啟用 JavaScript</h1><p>課程頁需要 JavaScript 讀取公開的課程目錄。</p></div></noscript>
 </body>
 </html>
